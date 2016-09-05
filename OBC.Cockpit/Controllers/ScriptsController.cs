@@ -14,6 +14,7 @@ namespace OBC.Cockpit.Controllers
             script.Append("angular.module('app')");
             script.Append(".constant('Settings', {");
             script.AppendFormat("ApiUrl: '{0}',", ConfigurationManager.AppSettings["AppUrl"]);
+            script.AppendFormat("MapKey: '{0}',", ConfigurationManager.AppSettings["MapKey"]);
             script.AppendFormat("DateTimeFormat: '{0}'", ConfigurationManager.AppSettings["DateTimeFormat"]);
             script.Append("});");
             script.Append("})();");
