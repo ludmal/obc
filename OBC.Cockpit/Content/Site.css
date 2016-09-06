@@ -48,7 +48,7 @@ textarea {
     width: 100%;
     padding: 20px;
     padding-top: 40px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 
@@ -57,13 +57,12 @@ textarea {
     position: absolute;
     top: 50PX;
     width: 100%;
-    background-color: antiquewhite;
 }
 
-#map {
+.map {
+    position: absolute;
+    top: 0;
         width: 100%;
-        height: 600px;
-        background-color: grey;
       }
 
 .angular-google-map-container { height: 100vh; }

@@ -1,0 +1,26 @@
+{
+customerName: 'ALA VIC SUNSHINE 50TN V1 DI PLANT',
+customerNo: '00001308',
+address: '40 BUNNETT STREET,NORTH SUNSHINE',
+longi: 144.840800,
+lati: -37.762700,
+tel: '9290 1100',
+email: 'info@airliquide.com'},
+
+{
+customerName: 'FULL LCO2 - HOLBROOK/TARCUTTA',
+customerNo: '99999941',
+address: 'CHANGEOVER,TARCUTTA',
+longi: 147.304554,
+lati: -35.737367,
+tel: '',
+email: 'info@airliquide.com'},
+
+{
+customerName: 'ALA VIC ALTONA ASU',
+customerNo: '99999945',
+address: '631 KOROROIT CREEK ROAD,ALTONA',
+longi: 144.792700,
+lati: -37.845300,
+tel: '',
+email: 'info@airliquide.com'},

@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -273,6 +274,9 @@
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\errors.json" />
+    <Content Include="data\depot.json" />
+    <Content Include="data\DP.json" />
+    <Content Include="data\source.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\check-list-model.js" />
     <Content Include="Scripts\highcharts.js" />

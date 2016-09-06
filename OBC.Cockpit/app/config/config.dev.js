@@ -3,9 +3,6 @@
         .config([
             'cfpLoadingBarProvider', '$httpProvider', '$provide', function (cfpLoadingBarProvider, $httpProvider, $provide) {
                 cfpLoadingBarProvider.includeSpinner = false;
-                $httpProvider.defaults.cache = false;
-                //$httpProvider.interceptors.push('HttpInterceptor');
-                $httpProvider.interceptors.push('AuthInterceptor');
             }
         ])
         .run([
