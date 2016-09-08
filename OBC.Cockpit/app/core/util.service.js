@@ -6,9 +6,9 @@
         .module('core.module')
         .factory('UtilService', UtilService);
 
-    UtilService.$inject = ['$rootScope', '$http', '$q', 'localStorageService', 'Settings'];
+    UtilService.$inject = ['$rootScope', '$http', '$q', 'Settings'];
 
-    function UtilService($rootScope, $http, $q, localStorageService, Settings) {
+    function UtilService($rootScope, $http, $q, Settings) {
         var srv = {};
 
         srv.validateTeamName = function validateName(name) {

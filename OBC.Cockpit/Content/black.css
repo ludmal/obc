@@ -17,32 +17,16 @@
 .source { background-color: green; }
 
 .nav-tabs {
-    border-bottom: 1px solid #000;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    border-bottom: 4px solid #f7f7f7;
     width: 100%;
 }
 
-.btn-trans {
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid #fff;
-    color: #fff;
-}
 .nav-tabs li {
     cursor: pointer;
     padding: 10px 20px 10px 20px;
+    background-color: #f7f7f7;
 }
-
-.nav-tabs li a:hover { border-radius: 0; }
-
-.nav-tabs ul { padding-right: 30px; }
-
-.tab-active {
-    color: #fff;
-    font-weight: 500;
-    padding: 0 25px 0 25px;
-    border-bottom: 4px solid #2ecc71;
-}
-
 
 .text-info {
     font-size: 12px;
@@ -66,11 +50,6 @@
     border-bottom:5px solid #00FF00;
 }
 
-.cont {
-    background-color: red;
-    background: rgba(0, 0, 0, 0.7);
-    
-}
 .btn-black {
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
@@ -79,23 +58,6 @@
 .hand {
     cursor: pointer;
 }
-
-.detail-panel {
-    padding: 20px;
-    width: 550px;
-    position: absolute;
-    border-radius: 3px;
-    top: 150px;
-    left: 200px;
-    font-size: 12px;
-    color: #fff;
-    z-index: 999999999;
-    background: rgba(0, 0, 0, 0.7);
-    -webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
--moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
-}
-
 
 #radiusPanel {
     padding: 20px;
@@ -113,32 +75,16 @@ box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
 box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
 }
 
-/*.nav-tabs li a:hover { border-radius: 0; }
+.nav-tabs li a:hover { border-radius: 0; }
 
 .nav-tabs ul { padding-right: 30px; }
 
 .tab-active {
-    background-color: #fff;
     color: #000;
     font-weight: 500;
     padding: 0 25px 0 25px;
 }
 
-.icon-green { color: #2ecc71; }
-
-.toolbar {
-    background-color: rgba(0, 0, 0, 0.6);
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 999999999999;
-}*/
-
-.btn-select {
-    background-color: #000;
-}
 .icon-green { color: #2ecc71; }
 
 .toolbar {
@@ -180,19 +126,6 @@ i { margin-right: 8px; }
 .blue { background-color: #2980B9; }
 
 .indigo { background-color: #8E44AD; }
-
-.icon-red {
-    color: #ff0000;
-}
-
-.icon-orange {
-    color: #ffb92d;
-}
-
-.icon-indigo {
-    color: #c747ff;
-}
-
 
 .icon-vol {
     color: #ff4500;
@@ -460,5 +393,5 @@ p {
 
 .tab-height {
     padding-top: 10px;
-    height: 260px;
+    height: 300px;
 }

@@ -1,0 +1,609 @@
+﻿<div>
+    <div id="depot" ng-show="parameter.data.type == 'depot'">
+        <div>
+        <div>
+            <p>
+                <b>{{ parameter.data.customerName }}</b>
+            </p>
+            <p>{{ parameter.data.address }}</p>
+            <p>Tel: {{ parameter.data.tel }}</p>
+            <p>
+                Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
+            </p>
+            <p>
+                <i class="fa fa-check-circle icon-green"></i>VMI&nbsp;-&nbsp;Vertical Layout
+            </p>
+            <p>
+                Capacity : <b>10000 M3</b>
+            </p>
+        </div>
+            <br />
+
+            <ul class="nav nav-tabs" ng-init="tab='1'">
+                <li role="presentation" ng-class="{ 'tab-active': tab == '1'}" ng-click="tab='1'">Info</li>
+                <li role="presentation" ng-class="{ 'tab-active': tab == '2'}" ng-click="tab='2'">Trailer Util.</li>
+                <li role="presentation" ng-class="{ 'tab-active': tab == '3'}" ng-click="tab='3'">Devliery</li>
+            </ul>
+            <div ng-show="tab==1" class="tab-height">
+                <p>Total Trailers : 30</p>
+                <p>Total Trips (YTD) : 5000</p>
+                <p>Total deliveries (YTD) : 6500</p>
+                <p>Total volume delived (YTD) : 60000 M3</p>
+                <p>Full Drops : 900</p>
+                <p>KM / TON : 10</p>
+
+                <p>
+                    LOA (YTD) : 79%
+                </p>
+                <progress class="progress progress-default" value="79" max="100" aria-describedby="example-caption-6">
+                    <div class="progress">
+                        <span class="progress-bar" style="width: 75%;"></span>
+                    </div>
+                </progress>
+                <p>
+                    Safty Level : <b>1500 M3 ( 15%)</b>
+                </p>
+                <progress class="progress progress-info" value="25" max="100" aria-describedby="example-caption-6">
+                    <div class="progress">
+                        <span class="progress-bar indigo" style="width: 45%;"></span>
+                    </div>
+                </progress>
+                <p>
+                    Drop Ratio : 90%
+                </p>
+                <progress class="progress " value="90" max="100" aria-describedby="example-caption-6">
+                    <div class="progress ">
+                        <span class="progress-bar red" style="width: 15%;"></span>
+                    </div>
+                </progress>
+                <p>
+                    Vehicle Fill Ratio : 80%
+                </p>
+                <progress class="progress progress-warning" value="80" max="100" aria-describedby="example-caption-6">
+                    <div class="progress">
+                        <span class="progress-bar orange" style="width: 55%;"></span>
+                    </div>
+                </progress>
+                <p>
+                    Stock Outs : 100
+                </p>
+            </div>
+            <div ng-show="tab==2" class="tab-height">
+                <p>
+                    <i class="fa fa-circle icon-vol"></i>Del. Vol By Date
+                </p>
+                <p>
+                    <i class="fa fa-circle icon-loa"></i>LOA by Date
+                </p>
+                <div id="bar-chart">
+                    <div class="graph">
+                        <ul class="x-axis">
+                            <li>
+                                <span>2010</span>
+                            </li>
+                            <li>
+                                <span>2012</span>
+                            </li>
+                            <li>
+                                <span>2013</span>
+                            </li>
+                            <li>
+                                <span>2014</span>
+                            </li>
+                            <li>
+                                <span>2015</span>
+                            </li>
+                        </ul>
+                        <ul class="y-axis">
+                            <li>
+                                <span>20</span>
+                            </li>
+                            <li>
+                                <span>15</span>
+                            </li>
+                            <li>
+                                <span>10</span>
+                            </li>
+                            <li>
+                                <span>5</span>
+                            </li>
+                            <li>
+                                <span>0</span>
+                            </li>
+                        </ul>
+                        <div class="bars">
+                            <div class="bar-group">
+                                <div class="bar bar-1 stat-1" style="height: 51%;">
+                                    <span>4080</span>
+                                </div>
+                                <div class="bar bar-2 stat-2" style="height: 71%;">
+                                    <span>5680</span>
+                                </div>
+                                @*<div class="bar bar-3 stat-3" style="height: 13%;">
+                                    <span>1040</span>
+                                </div>*@
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-4 stat-1" style="height: 76%;">
+                                    <span>6080</span>
+                                </div>
+                                <div class="bar bar-5 stat-2" style="height: 86%;">
+                                    <span>6880</span>
+                                </div>
+                                @*<div class="bar bar-6 stat-3" style="height: 22%;">
+                                    <span>1760</span>
+                                </div>*@
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-7 stat-1" style="height: 78%;">
+                                    <span>6240</span>
+                                </div>
+                                <div class="bar bar-8 stat-2" style="height: 72%;">
+                                    <span>5760</span>
+                                </div>
+                                @*<div class="bar bar-9 stat-3" style="height: 36%;">
+                                    <span>2880</span>
+                                </div>*@
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-10 stat-1" style="height: 44%;">
+                                    <span>3520</span>
+                                </div>
+                                <div class="bar bar-11 stat-2" style="height: 64%;">
+                                    <span>5120</span>
+                                </div>
+                                @*<div class="bar bar-12 stat-3" style="height: 59%">
+                                    <span>4720</span>
+                                </div>*@
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-13 stat-1" style="height: 28%;">
+                                    <span>2240</span>
+                                </div>
+                                <div class="bar bar-14 stat-2" style="height: 33%;">
+                                    <span>2640</span>
+                                </div>
+                                @*<div class="bar bar-15 stat-3" style="height: 94%;">
+                                    <span>7520</span>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="tab==3" class="tab-height">
+                <p>
+                    <i class="fa fa-circle icon-vol"></i>LY and TY Volume by Month
+                </p>
+                <div id="bar-chart">
+                    <div class="graph">
+                        <ul class="x-axis">
+                            <li>
+                                <span>2010</span>
+                            </li>
+                            <li>
+                                <span>2012</span>
+                            </li>
+                            <li>
+                                <span>2013</span>
+                            </li>
+                            <li>
+                                <span>2014</span>
+                            </li>
+                            <li>
+                                <span>2015</span>
+                            </li>
+                        </ul>
+                        <ul class="y-axis">
+                            <li>
+                                <span>20</span>
+                            </li>
+                            <li>
+                                <span>15</span>
+                            </li>
+                            <li>
+                                <span>10</span>
+                            </li>
+                            <li>
+                                <span>5</span>
+                            </li>
+                            <li>
+                                <span>0</span>
+                            </li>
+                        </ul>
+                        <div class="bars">
+                            <div class="bar-group">
+                                <div class="bar bar-1 stat-1" style="height: 51%;">
+                                    <span>4080</span>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-4 stat-1" style="height: 76%;">
+                                    <span>6080</span>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-7 stat-1" style="height: 78%;">
+                                    <span>6240</span>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-10 stat-1" style="height: 44%;">
+                                    <span>3520</span>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar bar-13 stat-1" style="height: 28%;">
+                                    <span>2240</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dp" ng-show="parameter.data.type == 'dp'">
+        <div>
+            <p>
+                <b>{{ parameter.data.customerName }}</b>
+            </p>
+            <p>{{ parameter.data.address }}</p>
+            <p>Tel: {{ parameter.data.tel }}</p>
+            <p>
+                Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
+            </p>
+            <p>
+                <i class="fa fa-check-circle icon-green"></i>VMI&nbsp;-&nbsp;Vertical Layout
+            </p>
+            <p>
+                Capacity : <b>10000 M3</b>
+            </p>
+        </div>
+        <br/>
+        <ul class="nav nav-tabs" ng-init="tab='1'">
+            <li role="presentation" ng-class="{ 'tab-active': tab == '1'}" ng-click="tab='1'">Info</li>
+            <li role="presentation" ng-class="{ 'tab-active': tab == '2'}" ng-click="tab='2'">Delivery</li>
+            <li role="presentation" ng-class="{ 'tab-active': tab == '3'}" ng-click="tab='3'">Consumption</li>
+        </ul>
+        <div ng-show="tab==1" class="tab-height">
+            <p>
+                <i class="fa fa-clock-o"></i>Last Delivery Date : {{parameter.data.lastDeliveryDate}}
+            </p>
+            <p>
+                <i class="fa fa-clock-o"></i>Next Delivery Date : {{parameter.data.lastDeliveryDate}}
+            </p>
+            <table>
+                <tr>
+                    <td title="Level On Arrival">
+                        LOA : <b>33%</b>
+                    </td>
+                    <td title="Vessel Delivery Efficiency ">
+                        VDE Reorder : <b>91%</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="No of deliveries" style="padding-right: 10px;">
+                        NOD (YTD) : <b>10</b>
+                    </td>
+                    <td title="Total volume delived">
+                        TVD (YTD) : <b>60000 M3</b>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                Re-Order Level : <b>3000 M3 ( 30%)</b>
+            </p>
+            <progress class="progress progress-default" value="25" max="100" aria-describedby="example-caption-6">
+                <div class="progress">
+                    <span class="progress-bar" style="width: 75%;"></span>
+                </div>
+            </progress>
+            <p>
+                Safty Level : <b>1500 M3 ( 15%)</b>
+            </p>
+            <progress class="progress progress-info" value="25" max="100" aria-describedby="example-caption-6">
+                <div class="progress">
+                    <span class="progress-bar indigo" style="width: 45%;"></span>
+                </div>
+            </progress>
+            <p>
+                Re-Order Level : <b>3000 M3 ( 30%)</b>
+            </p>
+            <progress class="progress " value="25" max="100" aria-describedby="example-caption-6">
+                <div class="progress ">
+                    <span class="progress-bar red" style="width: 15%;"></span>
+                </div>
+            </progress>
+            <p>
+                Critical Level : <b>300M3 ( 3%)</b>
+            </p>
+            <progress class="progress progress-warning" value="25" max="100" aria-describedby="example-caption-6">
+                <div class="progress">
+                    <span class="progress-bar orange" style="width: 55%;"></span>
+                </div>
+            </progress>
+            <p>
+                Re-Order Level : <b>3000 M3 ( 30%)</b>
+            </p>
+            <progress class="progress progress-success" value="25" max="100" aria-describedby="example-caption-6">
+                <div class="progress">
+                    <span class="progress-bar green" style="width: 25%;"></span>
+                </div>
+            </progress>
+            <p>
+                Hourly Usage Rate : <b>33 M3</b>
+            </p>
+        </div>
+        <div ng-show="tab==2" class="tab-height">
+            <p>
+                <i class="fa fa-circle icon-vol"></i>Del. Vol By Date
+            </p>
+            <p>
+                <i class="fa fa-circle icon-loa"></i>LOA by Date
+            </p>
+            <div id="bar-chart">
+                <div class="graph">
+                    <ul class="x-axis">
+                        <li>
+                            <span>2010</span>
+                        </li>
+                        <li>
+                            <span>2012</span>
+                        </li>
+                        <li>
+                            <span>2013</span>
+                        </li>
+                        <li>
+                            <span>2014</span>
+                        </li>
+                        <li>
+                            <span>2015</span>
+                        </li>
+                    </ul>
+                    <ul class="y-axis">
+                        <li>
+                            <span>20</span>
+                        </li>
+                        <li>
+                            <span>15</span>
+                        </li>
+                        <li>
+                            <span>10</span>
+                        </li>
+                        <li>
+                            <span>5</span>
+                        </li>
+                        <li>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                    <div class="bars">
+                        <div class="bar-group">
+                            <div class="bar bar-1 stat-1" style="height: 51%;">
+                                <span>4080</span>
+                            </div>
+                            <div class="bar bar-2 stat-2" style="height: 71%;">
+                                <span>5680</span>
+                            </div>
+                            
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-4 stat-1" style="height: 76%;">
+                                <span>6080</span>
+                            </div>
+                            <div class="bar bar-5 stat-2" style="height: 86%;">
+                                <span>6880</span>
+                            </div>
+                           
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-7 stat-1" style="height: 78%;">
+                                <span>6240</span>
+                            </div>
+                            <div class="bar bar-8 stat-2" style="height: 72%;">
+                                <span>5760</span>
+                            </div>
+                            
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-10 stat-1" style="height: 44%;">
+                                <span>3520</span>
+                            </div>
+                            <div class="bar bar-11 stat-2" style="height: 64%;">
+                                <span>5120</span>
+                            </div>
+                           
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-13 stat-1" style="height: 28%;">
+                                <span>2240</span>
+                            </div>
+                            <div class="bar bar-14 stat-2" style="height: 33%;">
+                                <span>2640</span>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="tab==3" class="tab-height">
+            <p>
+                <i class="fa fa-circle icon-vol"></i>LY and TY Volume by Month
+            </p>
+            <div id="bar-chart">
+                <div class="graph">
+                    <ul class="x-axis">
+                        <li>
+                            <span>2010</span>
+                        </li>
+                        <li>
+                            <span>2012</span>
+                        </li>
+                        <li>
+                            <span>2013</span>
+                        </li>
+                        <li>
+                            <span>2014</span>
+                        </li>
+                        <li>
+                            <span>2015</span>
+                        </li>
+                    </ul>
+                    <ul class="y-axis">
+                        <li>
+                            <span>20</span>
+                        </li>
+                        <li>
+                            <span>15</span>
+                        </li>
+                        <li>
+                            <span>10</span>
+                        </li>
+                        <li>
+                            <span>5</span>
+                        </li>
+                        <li>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                    <div class="bars">
+                        <div class="bar-group">
+                            <div class="bar bar-1 stat-1" style="height: 51%;">
+                                <span>4080</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-4 stat-1" style="height: 76%;">
+                                <span>6080</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-7 stat-1" style="height: 78%;">
+                                <span>6240</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-10 stat-1" style="height: 44%;">
+                                <span>3520</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-13 stat-1" style="height: 28%;">
+                                <span>2240</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="source" ng-show="parameter.data.type == 'source'">
+        <div>
+            <p>
+                <b>{{ parameter.data.customerName }}</b>
+            </p>
+            <p>{{ parameter.data.address }}</p>
+            <p>Tel: {{ parameter.data.tel }}</p>
+            <p>
+                Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
+            </p>
+            <p><i class="fa fa-check-circle icon-green"></i>AL Source</p>
+            <p>LOA : <b>79%</b></p>
+        </div>
+        <br />
+
+        <ul class="nav nav-tabs" ng-init="tab='1'">
+            <li role="presentation" ng-class="{ 'tab-active': tab == '1'}" ng-click="tab='1'">Info</li>
+            <li role="presentation" ng-class="{ 'tab-active': tab == '2'}" ng-click="tab='2'">Loading</li>
+        </ul>
+        <div ng-show="tab==1" class="tab-height">
+            <p>
+                <i class="fa fa-clock-o"></i>Last Pickup Date : dd/MM/yyyy hh:mm
+            </p>
+            <p>
+                Last Pickup Volume : 5000 M3
+            </p>
+            <p>No of Pickups (YTD) : 2000</p>
+            <p>Total volume Picked Up (YTD) : 60000 M3</p>
+            <p>Capacity : 10000 M3</p>
+            <p>Daily Quota : 10000 M3</p>
+            <p>Cost per unit : A$ 5</p>
+            <p>Hourly Production Rate : 33 M3</p>
+        </div>
+        <div ng-show="tab==2" class="tab-height">
+            <p>
+                <i class="fa fa-circle icon-vol"></i>Loading Vol by Month
+            </p>
+            <div id="bar-chart">
+                <div class="graph">
+                    <ul class="x-axis">
+                        <li>
+                            <span>Jan</span>
+                        </li>
+                        <li>
+                            <span>Feb</span>
+                        </li>
+                        <li>
+                            <span>Mar</span>
+                        </li>
+                        <li>
+                            <span>Apr</span>
+                        </li>
+                        <li>
+                            <span>May</span>
+                        </li>
+                    </ul>
+                    <ul class="y-axis">
+                        <li>
+                            <span>20</span>
+                        </li>
+                        <li>
+                            <span>15</span>
+                        </li>
+                        <li>
+                            <span>10</span>
+                        </li>
+                        <li>
+                            <span>5</span>
+                        </li>
+                        <li>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                    <div class="bars">
+                        <div class="bar-group">
+                            <div class="bar bar-1 stat-1" style="height: 51%;">
+                                <span>4080</span>
+                            </div>
+
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-4 stat-1" style="height: 76%;">
+                                <span>6080</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-7 stat-1" style="height: 78%;">
+                                <span>6240</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-10 stat-1" style="height: 44%;">
+                                <span>3520</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-13 stat-1" style="height: 28%;">
+                                <span>2240</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
