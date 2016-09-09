@@ -1,0 +1,50 @@
+[ 
+    {
+"id":"CD1",
+"customerName": "BOC ASU-LOX",
+"customerNo": "BOCXXXXX",
+"address": "351 Hammond Road, Dandenong 3175",
+"longi": 145.20599,
+"lati": -38.017554,
+"tel": "xxxxxx888",
+"email": "info@boc.com",
+"product": "LOX",
+"type": "comp"},
+{
+"id":"CD2",
+"customerName": "BOC ASU-LIN",
+"customerNo": "BOCXXXXX",
+"address": "351 Hammond Road, Dandenong 3175",
+"longi": 145.20599,
+"lati": -38.017554,
+"tel": "xxxxxx888",
+"email": "info@boc.com",
+"product": "LIN"
+,
+"type": "comp"},
+{
+"id":"CD3",
+"customerName": "BOC ASU-LAR",
+"customerNo": "BOCXXXXX",
+"address": "351 Hammond Road, Dandenong 3175",
+"longi": 145.20599,
+"lati": -38.017554,
+"tel": "xxxxxx888",
+"email": "info@boc.com",
+"product": "LAR"
+,
+"type": "comp"},
+{
+"id":"CD4",
+"customerName": "BOC CO2-LCO2",
+"customerNo": "BOCXXXXX",
+"address": "Callaghans Road, Nirranda South 3268",
+"longi": 142.814401,
+"lati": -38.521459,
+"tel": "xxxxxx888",
+"email": "info@boc.com",
+"product": "LCO2"
+,
+"type": "comp"}
+
+]

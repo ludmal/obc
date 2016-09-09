@@ -1,38 +1,53 @@
 ﻿<div ng-controller="RootController">
     <div>
-        <div class="toolbar">
-            <table>
-                <tr>
-                    <td>
-                        <div>
-                            <img src="~/images/logo.png" style="padding-right: 10px; width: 50px;"/>
-                        </div>
-                    </td>
-                    <td style="padding-right: 10px">
-                        <div class="btn-group" role="group" aria-label="Small button group">
-                            <button type="button" ng-class="{ 'btn-select': filter.lin }" ng-click=" filter.lin = !filter.lin" class="btn btn-black color-lin">LIN</button>
-                            <button type="button" ng-class="{ 'btn-select': filter.lox }" ng-click=" filter.lox = !filter.lox" class="btn btn-black color-lox">LOX</button>
-                            <button type="button" ng-class="{ 'btn-select': filter.lar }" ng-click=" filter.lar = !filter.lar" class="btn btn-black color-lar">LAR</button>
-                            <button type="button" ng-class="{ 'btn-select': filter.co2 }" ng-click=" filter.co2 = !filter.co2" class="btn btn-black color-co2">LCO2</button>
-                        </div>
-                    </td>
-                    <td style="padding-right: 10px">
-                        <div class="btn-group" role="group" aria-label="Small button group">
-                            <button type="button" ng-class="{ 'btn-select': filter.source }" ng-click="filter.source = !filter.source" class="btn btn-black"><i class="fa fa-dot-circle-o icon-green"></i>Source</button>
-                            <button type="button" ng-class="{ 'btn-select': filter.customer }" ng-click="filter.customer = !filter.customer" class="btn btn-black"><i class="fa fa-child icon-orange"></i>Customers</button>
-                            <button type="button" ng-class="{ 'btn-select': filter.depot }" ng-click="filter.depot = !filter.depot" class="btn btn-black"><i class="fa fa-building-o icon-indigo"></i>Depot</button>
-                        </div>
-                    </td>
-                    <td style="padding-right: 10px">
-                        <div class="btn-group" role="group" aria-label="Small button group">
-                            <button type="button" ng-class="{ 'btn-select': filter.comp }" ng-click="filter.comp = !filter.comp" class="btn btn-black"><i class="fa fa-dot-circle-o icon-red"></i>Competitors</button>
-                            <button type="button" ng-class="{ 'btn-select': filter.comp_cust }" ng-click="filter.comp_cust = !filter.comp_cust" class="btn btn-black"><i class="fa fa-child icon-red"></i>Customers</button>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    <div id="depot" ng-show="showPanel" class="detail-panel">
+    <div class="toolbar">
+        <table>
+            <tr>
+                <td>
+                    <div>
+                        <img src="~/images/logo.png" style="padding-right: 10px; width: 50px;"/>
+                    </div>
+                </td>
+                <td style="padding-right: 10px">
+                    <div class="btn-group" role="group" aria-label="Small button group">
+                        <button type="button" ng-class="{ 'btn-select': filter.lin }" ng-click=" filter.lin = !filter.lin" class="btn btn-black color-lin">LIN</button>
+                        <button type="button" ng-class="{ 'btn-select': filter.lox }" ng-click=" filter.lox = !filter.lox" class="btn btn-black color-lox">LOX</button>
+                        <button type="button" ng-class="{ 'btn-select': filter.lar }" ng-click=" filter.lar = !filter.lar" class="btn btn-black color-lar">LAR</button>
+                        <button type="button" ng-class="{ 'btn-select': filter.co2 }" ng-click=" filter.co2 = !filter.co2" class="btn btn-black color-co2">LCO2</button>
+                    </div>
+                </td>
+                <td style="padding-right: 10px">
+                    <div class="btn-group" role="group" aria-label="Small button group">
+                        <button type="button" ng-class="{ 'btn-select': filter.source }" ng-click="filter.source = !filter.source" class="btn btn-black"><i class="fa fa-dot-circle-o icon-green"></i>Source</button>
+                        <button type="button" ng-class="{ 'btn-select': filter.customer }" ng-click="filter.customer = !filter.customer" class="btn btn-black"><i class="fa fa-child icon-orange"></i>Customers</button>
+                        <button type="button" ng-class="{ 'btn-select': filter.depot }" ng-click="filter.depot = !filter.depot" class="btn btn-black"><i class="fa fa-building-o icon-indigo"></i>Depot</button>
+                    </div>
+                </td>
+                <td style="padding-right: 10px">
+                    <div class="btn-group" role="group" aria-label="Small button group">
+                        <button type="button" ng-class="{ 'btn-select': filter.comp }" ng-click="filter.comp = !filter.comp" class="btn btn-black"><i class="fa fa-dot-circle-o icon-red"></i>Competitors</button>
+                        <button type="button" ng-class="{ 'btn-select': filter.comp_cust }" ng-click="filter.comp_cust = !filter.comp_cust" class="btn btn-black"><i class="fa fa-child icon-red"></i>Customers</button>
+                    </div>
+                </td>
+                <td style="padding-right: 10px">
+                    <div class="btn-group" role="group" aria-label="Small button group">
+                        <button type="button" ng-class="{ 'btn-select': filter.trips }" ng-click="filter.trips = !filter.trips" class="btn btn-black"><i class="fa fa-truck icon-orange"></i>Show Trips</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="nearby_info" class="nearby-panel" ng-show="showNearbyPanel">
+        <i class="fa fa-close pull-right hand" ng-click="hideNearbyInfo()"></i>
+        <p><i class="fa fa-star icon-orange"></i>{{nearestCustomer.obj.customerName}}
+        </p>
+        <p>Distance: <b>{{nearestCustomer.distance | number:0}} KM</b>
+            <p>Closest Competitor Source: <b>10 KM</b>
+            </p>
+        <p><i class="fa fa-check-circle icon-green"></i>Potential AirLiquide customer</p>
+        </p>
+    </div>
+    <div ng-show="showPanel" class="detail-panel">
     <div><i class="fa fa-close hand pull-right" ng-click="showPanel= false"></i></div>
         <div id="depot" ng-show="parameter.data.type == 'depot'">
             <div>
@@ -45,13 +60,9 @@
                     <p>
                         Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
                     </p>
-                    <p>
-                        <i class="fa fa-check-circle icon-green"></i>VMI&nbsp;-&nbsp;Vertical Layout
-                    </p>
-                    <p>
-                        Capacity : <b>10000 M3</b>
-                    </p>
                 </div>
+                <button class="btn btn-danger btn-xs" ng-click="findNearestCompCust(parameter.data.lati, parameter.data.longi)">Find Nearest Comp.Customers</button>
+                <br />
                 <br />
 
                 <ul class="nav nav-tabs" ng-init="tab='1'">
@@ -60,31 +71,24 @@
                     <li role="presentation" ng-class="{ 'tab-active': tab == '3'}" ng-click="tab='3'">Devliery</li>
                 </ul>
                 <div ng-show="tab==1" class="tab-height">
-                    <p>Total Trailers : 30</p>
-                    <p>Total Trips (YTD) : 5000</p>
-                    <p>Total deliveries (YTD) : 6500</p>
-                    <p>Total volume delived (YTD) : 60000 M3</p>
-                    <p>Full Drops : 900</p>
-                    <p>KM / TON : 10</p>
+                    <p>Total Trailers : {{ parameter.data.totalTrailers }}</p>
+                    <p>Total Trips (YTD) : {{ parameter.data.totalTrips }}</p>
+                    <p>Total deliveries (YTD) : {{ parameter.data.totalDeliveries }}</p>
+                    <p>Total volume delived (YTD) : {{ parameter.data.totalVolumeDelivered }} M3</p>
+                    <p>Full Drops : {{ parameter.data.fullDrops }}</p>
+                    <p>KM / TON : {{ parameter.data.kmton }}</p>
 
                     <p>
-                        LOA (YTD) : 79%
+                        LOA (YTD) : {{ parameter.data.loa }}%
                     </p>
                     <progress class="progress progress-default" value="79" max="100" aria-describedby="example-caption-6">
                         <div class="progress">
                             <span class="progress-bar" style="width: 75%;"></span>
                         </div>
                     </progress>
+                    
                     <p>
-                        Safty Level : <b>1500 M3 ( 15%)</b>
-                    </p>
-                    <progress class="progress progress-info" value="25" max="100" aria-describedby="example-caption-6">
-                        <div class="progress">
-                            <span class="progress-bar indigo" style="width: 45%;"></span>
-                        </div>
-                    </progress>
-                    <p>
-                        Drop Ratio : 90%
+                        Drop Ratio : {{ parameter.data.dropRatio }}%
                     </p>
                     <progress class="progress " value="90" max="100" aria-describedby="example-caption-6">
                         <div class="progress ">
@@ -92,7 +96,7 @@
                         </div>
                     </progress>
                     <p>
-                        Vehicle Fill Ratio : 80%
+                        Vehicle Fill Ratio : {{ parameter.data.vehRatio }}%
                     </p>
                     <progress class="progress progress-warning" value="80" max="100" aria-describedby="example-caption-6">
                         <div class="progress">
@@ -100,7 +104,7 @@
                         </div>
                     </progress>
                     <p>
-                        Stock Outs : 100
+                        Stock Outs : {{ parameter.data.stockOut }}
                     </p>
                 </div>
                 <div ng-show="tab==2" class="tab-height">
@@ -290,11 +294,10 @@
                     Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
                 </p>
                 <p>
-                    <i class="fa fa-check-circle icon-green"></i>VMI&nbsp;-&nbsp;Vertical Layout
+                    <i class="fa fa-circle icon-gray" ng-class="{ 'icon-green': parameter.data.vmi == 'FALSE' ? false : true }"></i>VMI&nbsp;-&nbsp;{{parameter.data.layout }} Layout
                 </p>
-                <p>
-                    Capacity : <b>10000 M3</b>
-                </p>
+                <p>Product {{parameter.data.product }}</p>
+                <button class="btn btn-danger btn-xs" ng-click="findNearestCompCust(parameter.data.lati, parameter.data.longi)">Find Nearest Comp.Customers</button>
             </div>
             <br />
             <ul class="nav nav-tabs" ng-init="tab='1'">
@@ -304,71 +307,58 @@
             </ul>
             <div ng-show="tab==1" class="tab-height">
                 <p>
-                    <i class="fa fa-clock-o"></i>Last Delivery Date : {{parameter.data.lastDeliveryDate}}
+                    <i class="fa fa-clock-o"></i>Last Delivery Date : {{parameter.data.lastDeliveryDate | date: 'fullDate'}}
                 </p>
                 <p>
-                    <i class="fa fa-clock-o"></i>Next Delivery Date : {{parameter.data.lastDeliveryDate}}
+                    <i class="fa fa-clock-o"></i>Next Delivery Date : {{parameter.data.nextDeliveryDate | date: 'fullDate' }}
                 </p>
                 <table>
                     <tr>
                         <td title="Level On Arrival">
-                            LOA : <b>33%</b>
+                            LOA : <b>{{parameter.data.loa }}%</b>
                         </td>
                         <td title="Vessel Delivery Efficiency ">
-                            VDE Reorder : <b>91%</b>
+                            VDE Reorder : <b>{{parameter.data.vdeReorder }}%</b>
                         </td>
                     </tr>
                     <tr>
                         <td title="No of deliveries" style="padding-right: 10px;">
-                            NOD (YTD) : <b>10</b>
+                            NOD (YTD) : <b>{{parameter.data.nod }} </b>
                         </td>
                         <td title="Total volume delived">
-                            TVD (YTD) : <b>60000 M3</b>
+                            TVD (YTD) : <b>{{parameter.data.tvd }} M3</b>
                         </td>
                     </tr>
                 </table>
                 <p>
-                    Re-Order Level : <b>3000 M3 ( 30%)</b>
+                    Capacity : <b>{{parameter.data.capacity }} M3</b>
+                </p>
+                <p>
+                    Re-Order Level : <b>{{parameter.data.reOrderLevel }}M3 ( {{parameter.data.reOrderLevel }}%)</b>
                 </p>
                 <progress class="progress progress-default" value="25" max="100" aria-describedby="example-caption-6">
                     <div class="progress">
-                        <span class="progress-bar" style="width: 75%;"></span>
+                        <span class="progress-bar yellow" style="width: 30%;"></span>
                     </div>
                 </progress>
                 <p>
-                    Safty Level : <b>1500 M3 ( 15%)</b>
+                    Safty Level : <b>{{parameter.data.safetyLevel }}  M3 ( {{parameter.data.safetyLevel }}%)</b>
                 </p>
-                <progress class="progress progress-info" value="25" max="100" aria-describedby="example-caption-6">
+                <progress class="progress progress-info" value="15" max="100" aria-describedby="example-caption-6">
                     <div class="progress">
-                        <span class="progress-bar indigo" style="width: 45%;"></span>
+                        <span class="progress-bar orange" style="width: 15%;"></span>
                     </div>
                 </progress>
                 <p>
-                    Re-Order Level : <b>3000 M3 ( 30%)</b>
+                    Critical Level : <b>{{parameter.data.criticalLevel }}M3 ( {{parameter.data.criticalLevel }}%)</b>
                 </p>
-                <progress class="progress " value="25" max="100" aria-describedby="example-caption-6">
-                    <div class="progress ">
-                        <span class="progress-bar red" style="width: 15%;"></span>
-                    </div>
-                </progress>
-                <p>
-                    Critical Level : <b>300M3 ( 3%)</b>
-                </p>
-                <progress class="progress progress-warning" value="25" max="100" aria-describedby="example-caption-6">
+                <progress class="progress progress-warning" value="3" max="100" aria-describedby="example-caption-6">
                     <div class="progress">
-                        <span class="progress-bar orange" style="width: 55%;"></span>
+                        <span class="progress-bar red" style="width: 3%;"></span>
                     </div>
                 </progress>
                 <p>
-                    Re-Order Level : <b>3000 M3 ( 30%)</b>
-                </p>
-                <progress class="progress progress-success" value="25" max="100" aria-describedby="example-caption-6">
-                    <div class="progress">
-                        <span class="progress-bar green" style="width: 25%;"></span>
-                    </div>
-                </progress>
-                <p>
-                    Hourly Usage Rate : <b>33 M3</b>
+                    Hourly Usage Rate : <b>{{parameter.data.usageRate }} M3</b>
                 </p>
             </div>
             <div ng-show="tab==2" class="tab-height">
@@ -536,7 +526,137 @@
                 </div>
             </div>
         </div>
-        <div id="source" ng-show="parameter.data.type == 'source'">
+    <div id="source" ng-show="parameter.data.type == 'source'">
+        <div>
+            <p>
+                <b>{{ parameter.data.customerName }}</b>
+            </p>
+            <p>{{ parameter.data.address }}</p>
+            <p>Tel: {{ parameter.data.tel }}</p>
+            <p>
+                Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
+            </p>
+            <p>LOA : <b>{{parameter.data.loa}}%</b>
+            </p>
+        </div>
+        <button class="btn btn-danger" ng-click="findNearestCompCust()">Find Nearest Comp.Customers</button>
+        <br/>
+
+        <ul class="nav nav-tabs" ng-init="tab='1'">
+            <li role="presentation" ng-class="{ 'tab-active': tab == '1'}" ng-click="tab='1'">Info</li>
+            <li role="presentation" ng-class="{ 'tab-active': tab == '2'}" ng-click="tab='2'">Loading</li>
+        </ul>
+        <div ng-show="tab==1" class="tab-height">
+            <p>
+                <i class="fa fa-clock-o"></i>Last Pickup Date : {{parameter.data.lastPickupdate}}
+            </p>
+            <p>
+                Last Pickup Volume : {{parameter.data.totalVolume}} M3
+            </p>
+            <p>No of Pickups (YTD) : {{parameter.data.nofPickups}}</p>
+            <p>Total volume Picked Up (YTD) : {{parameter.data.totalVolume}} M3</p>
+            <p>Capacity : {{parameter.data.capacity}} M3</p>
+            <p>Daily Quota : {{parameter.data.dailyQuota}} M3</p>
+            <p>Cost per unit : A$ {{parameter.data.costPerUnit}}</p>
+            <p>Hourly Production Rate : {{parameter.data.hourlyProduction}} M3</p>
+        </div>
+        <div ng-show="tab==2" class="tab-height">
+            <p>
+                <i class="fa fa-circle icon-vol"></i>Loading Vol by Month
+            </p>
+            <div id="bar-chart">
+                <div class="graph">
+                    <ul class="x-axis">
+                        <li>
+                            <span>Jan</span>
+                        </li>
+                        <li>
+                            <span>Feb</span>
+                        </li>
+                        <li>
+                            <span>Mar</span>
+                        </li>
+                        <li>
+                            <span>Apr</span>
+                        </li>
+                        <li>
+                            <span>May</span>
+                        </li>
+                    </ul>
+                    <ul class="y-axis">
+                        <li>
+                            <span>20</span>
+                        </li>
+                        <li>
+                            <span>15</span>
+                        </li>
+                        <li>
+                            <span>10</span>
+                        </li>
+                        <li>
+                            <span>5</span>
+                        </li>
+                        <li>
+                            <span>0</span>
+                        </li>
+                    </ul>
+                    <div class="bars">
+                        <div class="bar-group">
+                            <div class="bar bar-1 stat-1" style="height: 51%;">
+                                <span>4080</span>
+                            </div>
+
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-4 stat-1" style="height: 76%;">
+                                <span>6080</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-7 stat-1" style="height: 78%;">
+                                <span>6240</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-10 stat-1" style="height: 44%;">
+                                <span>3520</span>
+                            </div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar bar-13 stat-1" style="height: 28%;">
+                                <span>2240</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="comp" ng-show="parameter.data.type == 'comp'">
+        <div>
+            <p>
+                <b>{{ parameter.data.customerName }}</b>
+            </p>
+            <p>{{ parameter.data.address }}</p>
+            <p>Tel: {{ parameter.data.tel }}</p>
+            <p>
+                Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
+            </p>
+        </div>
+        <br/>
+
+        <ul class="nav nav-tabs" ng-init="tab='1'">
+            <li role="presentation" ng-class="{ 'tab-active': tab == '1'}" ng-click="tab='1'">Nearby</li>
+            <li role="presentation" ng-class="{ 'tab-active': tab == '2'}" ng-click="tab='2'">Other</li>
+        </ul>
+        <div ng-show="tab==1" class="tab-height">
+
+        </div>
+        <div ng-show="tab==2" class="tab-height">
+
+        </div>
+    </div>
+        <div id="comp_cust" ng-show="parameter.data.type == 'comp_cust'">
             <div>
                 <p>
                     <b>{{ parameter.data.customerName }}</b>
@@ -546,99 +666,18 @@
                 <p>
                     Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
                 </p>
-                <p><i class="fa fa-check-circle icon-green"></i>AL Source</p>
-                <p>LOA : <b>79%</b></p>
             </div>
             <br />
 
             <ul class="nav nav-tabs" ng-init="tab='1'">
-                <li role="presentation" ng-class="{ 'tab-active': tab == '1'}" ng-click="tab='1'">Info</li>
-                <li role="presentation" ng-class="{ 'tab-active': tab == '2'}" ng-click="tab='2'">Loading</li>
+                <li role="presentation" ng-class="{ 'tab-active': tab == '1'}" ng-click="tab='1'">Nearby</li>
+                <li role="presentation" ng-class="{ 'tab-active': tab == '2'}" ng-click="tab='2'">Other</li>
             </ul>
             <div ng-show="tab==1" class="tab-height">
-                <p>
-                    <i class="fa fa-clock-o"></i>Last Pickup Date : dd/MM/yyyy hh:mm
-                </p>
-                <p>
-                    Last Pickup Volume : 5000 M3
-                </p>
-                <p>No of Pickups (YTD) : 2000</p>
-                <p>Total volume Picked Up (YTD) : 60000 M3</p>
-                <p>Capacity : 10000 M3</p>
-                <p>Daily Quota : 10000 M3</p>
-                <p>Cost per unit : A$ 5</p>
-                <p>Hourly Production Rate : 33 M3</p>
+
             </div>
             <div ng-show="tab==2" class="tab-height">
-                <p>
-                    <i class="fa fa-circle icon-vol"></i>Loading Vol by Month
-                </p>
-                <div id="bar-chart">
-                    <div class="graph">
-                        <ul class="x-axis">
-                            <li>
-                                <span>Jan</span>
-                            </li>
-                            <li>
-                                <span>Feb</span>
-                            </li>
-                            <li>
-                                <span>Mar</span>
-                            </li>
-                            <li>
-                                <span>Apr</span>
-                            </li>
-                            <li>
-                                <span>May</span>
-                            </li>
-                        </ul>
-                        <ul class="y-axis">
-                            <li>
-                                <span>20</span>
-                            </li>
-                            <li>
-                                <span>15</span>
-                            </li>
-                            <li>
-                                <span>10</span>
-                            </li>
-                            <li>
-                                <span>5</span>
-                            </li>
-                            <li>
-                                <span>0</span>
-                            </li>
-                        </ul>
-                        <div class="bars">
-                            <div class="bar-group">
-                                <div class="bar bar-1 stat-1" style="height: 51%;">
-                                    <span>4080</span>
-                                </div>
 
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-4 stat-1" style="height: 76%;">
-                                    <span>6080</span>
-                                </div>
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-7 stat-1" style="height: 78%;">
-                                    <span>6240</span>
-                                </div>
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-10 stat-1" style="height: 44%;">
-                                    <span>3520</span>
-                                </div>
-                            </div>
-                            <div class="bar-group">
-                                <div class="bar bar-13 stat-1" style="height: 28%;">
-                                    <span>2240</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -655,11 +694,11 @@
             <rzslider rz-slider-model="circle.radius" rz-slider-options="slider_ticks.options"></rzslider>
             <span><b>{{circle.radius}}</b> KM</span>
             <br />
-            <button class="btn btn-danger pull-right">Find</button>
+            <button class="btn btn-danger pull-right" ng-click="findMarkers()">Find</button>
         </div>
         <div class="map">
             <ui-gmap-google-map center="map.center"
-                                zoom="map.zoom" aria-label="Google map" events="map.events">
+                                zoom="map.zoom" aria-label="Google map" events="map.events" control="gMap">
                 <ui-gmap-circle center="circle.center" stroke="circle.stroke" fill="circle.fill" radius="circle.radius*1000"
                                 visible="circle.visible" geodesic="circle.geodesic" editable="circle.editable" draggable="circle.draggable" clickable="circle.clickable" control="circle.control"></ui-gmap-circle>
 

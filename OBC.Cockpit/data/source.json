@@ -1,170 +1,21 @@
-{
-customerName: 'SUPAGAS PTY LTD (PICK CO2 ONLY)',
-customerNo: 'SU114504',
-address: '14 COMMERCIAL DRIVE,DANDENONG SOUTH',
-longi: 145.228685,
-lati: -38.026143,
-tel: '                     ',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'FULL LAR - HOLBROOK/TARCUTTA',
-customerNo: '99999947',
-address: 'CHANGEOVER,TARCUTTA',
-longi: 147.735000,
-lati: -35.278400,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'BOC BOGGY CREEK',
-customerNo: '99999931',
-address: 'BOC BOGGY CREEK,BOGGY CREEK',
-longi: 144.963900,
-lati: -37.815200,
-tel: '5566 5340',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'AIR LIQUIDE AUSTRALIA - ALTONA',
-customerNo: '99999944',
-address: '631 KORORIT CREEK ROAD,ALTONA',
-longi: 144.792687,
-lati: -37.845276,
-tel: '                     ',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'ALA VIC SUNSHINE 50TN V2 DI PLANT',
-customerNo: '00001309',
-address: '40 BUNNETT STREET,NORTH SUNSHINE',
-longi: 144.840800,
-lati: -37.762700,
-tel: '9290 1100',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'AIR LIQUIDE AUSTRALIA - ALTONA',
-customerNo: '99999943',
-address: '631 KOROROIT CREEK ROAD,ALTONA',
-longi: 144.792700,
-lati: -37.845300,
-tel: '                     ',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'ALA VIC SUNSHINE 50TN V1 DI PLANT',
-customerNo: '00001308',
-address: '40 BUNNETT STREET,NORTH SUNSHINE',
-longi: 144.840800,
-lati: -37.762700,
-tel: '9290 1100',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'FULL LCO2 - HOLBROOK/TARCUTTA',
-customerNo: '99999941',
-address: 'CHANGEOVER,TARCUTTA',
-longi: 147.304554,
-lati: -35.737367,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'ALA VIC ALTONA ASU',
-customerNo: '99999945',
-address: '631 KOROROIT CREEK ROAD,ALTONA',
-longi: 144.792700,
-lati: -37.845300,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'AIR LIQUIDE AUSTRALIA - LANG LANG (S01)',
-customerNo: '99999953',
-address: '5570 SOUTH GIPPSLAND HWY,LANG LANG',
-longi: 145.614760,
-lati: -38.334134,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'NHILL CO2 - FULL',
-customerNo: '99999960',
-address: 'WESTERN HIGHWAY,NHILL',
-longi: 145.079500,
-lati: -37.878600,
-tel: '255 2288',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'EMPTY LCO2 - HOLBROOK/TARCUTTA',
-customerNo: '99999967',
-address: 'CHANGEOVER,TARCUTTA',
-longi: 147.715300,
-lati: -35.288500,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'NHILL - LIN COLLECT EMPTY',
-customerNo: '99999969',
-address: 'WESTERN HIGHWAY,NHILL',
-longi: 142.428610,
-lati: -36.859705,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'NHILL - LIN COLLECT FULL',
-customerNo: '99999970',
-address: 'WESTERN HIGHWAY,NHILL',
-longi: 148.974200,
-lati: -21.230900,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'NHILL CO2 - EMPTY',
-customerNo: '99999973',
-address: 'WESTERN HIGHWAY,NHILL',
-longi: 145.079500,
-lati: -37.878600,
-tel: '255 2288',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'ALWA - LAR EX WA',
-customerNo: '99999977',
-address: 'LAR PICK UP,WA',
-longi: 147.735000,
-lati: -35.278400,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'ALWA - LAR PICK UP',
-customerNo: '99999978',
-address: 'WA,PERTH',
-longi: 0.000000,
-lati: 0.000000,
-tel: '255 2288',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'FULL LCO2 - HOLBROOK/TARCUTTA',
-customerNo: '99999941',
-address: 'CHANGEOVER,TARCUTTA',
-longi: 147.304554,
-lati: -35.737367,
-tel: '',
-email: 'info@airliquide.com'},
-
-{
-customerName: 'ALA VIC LANG LANG CO2 ANALYSER',
-customerNo: '99999979',
-address: '5570 SOUTH GIPPSLAND HWY,LANG LANG',
-longi: 145.614760,
-lati: -38.334134,
-tel: '',
-email: 'info@airliquide.com'},
+[
+    {
+        "id": "",
+        "customerName": "ALA VIC SUNSHINE 50TN V1 DI PLANT",
+        "customerNo": "00001308",
+        "address": "40 BUNNETT STREET,NORTH SUNSHINE",
+        "longi": 144.840800,
+        "lati": -37.762700,
+        "tel": "9290 1100",
+        "email": "info@airliquide.com",
+        "lastPickupdate": "",
+        "nofPickups": 0,
+        "totalVolume": 0,
+        "capacity": 0,
+        "dailyQuota": 0,
+        "costPerUnit": 0,
+        "isAlSource": true,
+        "hourlyProduction": 0,
+        "loa": 0
+    }
+]

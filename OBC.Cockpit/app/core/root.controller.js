@@ -13,6 +13,9 @@
 
         var icon = Settings.ApiUrl + "/images/object_cylinder.png";
         $scope.markers = [];
+        $scope.gMap = {};
+        $scope.showNearbyPanel = false;
+        var directionsRenderer = new google.maps.DirectionsRenderer({ suppressMarkers: true });
 
         $scope.products = [
             "050903-NI-ALIGAL DRINK 1 LIQUID",
@@ -41,7 +44,7 @@
 
         $scope.sources = [
             {
-                id:1,
+                id: 1,
                 customerName: "SUPAGAS PTY LTD (PICK CO2 ONLY)",
                 customerNo: "SU114504",
                 address: "14 COMMERCIAL DRIVE,DANDENONG SOUTH",
@@ -49,65 +52,36 @@
                 lati: -38.026143,
                 tel: "                     ",
                 email: "info@airliquide.com",
-                type: 'source'
+                type: "source"
             }
         ];
 
-        $scope.dps = [
-            {
-                id:21,
-                customerName: "MARYBOROUGH SPORTS & FITNESS CENTRE (CO2 MINIBULK)",
-                customerNo: "YMV01001",
-                address: "40 GILLES STREET,MARYBOROUGH",
-                longi: 143.743800,
-                lati: -37.055200,
-                tel: "5461 4300",
-                email: "info@airliquide.com",
-                type: 'customer'
-            }
-        ];
-
-        $scope.depots = [
-            {
-                id:43,
-                customerName: "MARYBOROUGH SPORTS & FITNESS CENTRE (CO2 MINIBULK)",
-                customerNo: "YMV01001",
-                address: "40 GILLES STREET,MARYBOROUGH",
-                longi: 143.743800,
-                lati: -37.055200,
-                tel: "5461 4300",
-                email: "info@airliquide.com",
-                type: 'depot'
-            }
-        ];
-
-        $scope.com = [
-            {
-                id: 43,
-                customerName: "Comp",
-                customerNo: "YMV01001",
-                address: "40 GILLES STREET,MARYBOROUGH",
-                longi: 143.743800,
-                lati: -37.055200,
-                tel: "5461 4300",
-                email: "info@airliquide.com",
-                type: 'com'
-            }
-        ];
-
-        $scope.com_cust = [
-            {
-                id: 43,
-                customerName: "Competetor_Customer",
-                customerNo: "YMV01001",
-                address: "40 GILLES STREET,MARYBOROUGH",
-                longi: 143.743800,
-                lati: -37.055200,
-                tel: "5461 4300",
-                email: "info@airliquide.com",
-                type: 'com_cust'
-            }
-        ];
+        $scope.customers = [];
+        $scope.depots = [];
+        $scope.sources = [
+    {
+        "id": "",
+        "customerName": "ALA VIC SUNSHINE 50TN V1 DI PLANT",
+        "customerNo": "00001308",
+        "address": "40 BUNNETT STREET,NORTH SUNSHINE",
+        "longi": 144.840800,
+        "lati": -37.762700,
+        "tel": "9290 1100",
+        "email": "info@airliquide.com",
+        "lastPickupdate": "",
+        "nofPickups": 0,
+        "totalVolume": 0,
+        "capacity": 0,
+        "dailyQuota": 0,
+        "costPerUnit": 0,
+        "isAlSource": true,
+        "hourlyProduction": 0,
+        "loa": 0
+    }
+        ]
+        ;
+        $scope.comp = [];
+        $scope.comp_cust = [];
 
         $scope.slider_ticks = {
             value: 1,
@@ -125,16 +99,16 @@
             center: { latitude: $scope.sources[0].lati, longitude: $scope.sources[0].longi },
             zoom: 8,
             events: {
-                tilesloaded: function (map, eventName, originalEventArgs) {
+                tilesloaded: function(map, eventName, originalEventArgs) {
                     //map is trueley ready then this callback is hit
                 },
-                click: function (mapModel, eventName, originalEventArgs) {
-                    
+                click: function(mapModel, eventName, originalEventArgs) {
+
                     var e = originalEventArgs[0];
                     var lat = e.latLng.lat(), lon = e.latLng.lng();
                     $scope.circle.center.latitude = lat;
                     $scope.circle.center.longitude = lon;
-                    console.log('circle valies',$scope.circle);
+                    console.log("circle valies", $scope.circle);
                     $scope.circle.visible = true;
                     $scope.$apply();
                 }
@@ -159,8 +133,7 @@
             //    position: google.maps.ControlPosition.RIGHT_CENTER
             //},
             mapTypeControl: false,
-        }
-
+        };
         $scope.find = {
             depot: false,
             source: false,
@@ -169,18 +142,106 @@
             com_cust: false
         };
 
+
+        $scope.bindFindMarkers = function(list) {
+            var _kCord = new google.maps.LatLng($scope.circle.center.latitude, $scope.circle.center.longitude);
+            angular.forEach(list, function (value) {
+                var _pCord = new google.maps.LatLng(value.lati, value.longi);
+                var distance = google.maps.geometry.spherical.computeDistanceBetween(_kCord, _pCord) / 1000;
+                if (distance < $scope.circle.radius) {
+                    $scope.markers.push($scope.createMarker(value.lati, value.longi, value));
+                }
+            });
+        }
+
+        $scope.nearestCustomer = {
+            distance: 0,
+            obj: null
+        };
+
+        $scope.hideNearbyInfo = function() {
+            $scope.showNearbyPanel = false;
+            directionsRenderer.set('directions', null);
+
+        };
+
+        $scope.findNearestCompCust = function(lat,lon) {
+            var _kCord = new google.maps.LatLng(lat, lon);
+            $scope.nearestCustomers = [];
+
+            angular.forEach($scope.comp_cust, function (value) {
+                var _pCord = new google.maps.LatLng(value.lati, value.longi);
+                var distance = google.maps.geometry.spherical.computeDistanceBetween(_kCord, _pCord) / 1000;
+
+                $scope.nearestCustomer.distance = distance;
+                $scope.nearestCustomer.obj = value;
+
+                $scope.nearestCustomers = [$scope.nearestCustomer];
+
+                var closest = $scope.nearestCustomers[0];
+
+                var marker = $scope.createMarker(closest.obj.lati, closest.obj.longi, closest.obj, 3);
+                //marker.options.animation = google.maps.Animation.BOUNCE;
+                $scope.markers.push(marker);
+
+                $scope.setDirections({
+                    lati: lat,
+                    longi:lon
+                }, {
+                    lati: closest.obj.lati,
+                    longi: closest.obj.longi
+                });
+
+                $scope.showNearbyPanel = true;
+
+                console.log('nearest customers', $scope.nearestCustomers);
+            });
+        };
+
+        $scope.findMarkers = function () {
+            if (!$scope.find.depot &&
+                    !$scope.find.customer &&
+                    !$scope.find.source &&
+                    !$scope.find.com &&
+                    !$scope.find.com_cust
+            ) {
+                alert('Please select to find nearby.');
+                return;
+            }
+            $scope.markers = [];
+
+            if ($scope.find.customer) {
+                $scope.bindFindMarkers($scope.customers);
+            }
+
+            if ($scope.find.depot) {
+                $scope.bindFindMarkers($scope.depots);
+            }
+
+            if ($scope.find.source) {
+                $scope.bindFindMarkers($scope.sources);
+            }
+
+            if ($scope.find.com) {
+                $scope.bindFindMarkers($scope.comp);
+            }
+            if ($scope.find.com_cust) {
+                $scope.bindFindMarkers($scope.comp_cust);
+            }
+        };
+
         $scope.circle = {
             id: 1,
             center: { latitude: $scope.sources[0].lati, longitude: $scope.sources[0].longi },
             radius: 20,
             stroke: {
-                color: '#E74C3C',
+                color: "#E74C3C",
                 weight: 3,
                 opacity: 1
             },
             fill: {
-                color: '#000000',
-                opacity: 0.1    
+                color: "#000000",
+                opacity: 0.2
             },
             geodesic: true,
             draggable: false,
@@ -190,70 +251,50 @@
             control: {}
         };
 
-        $scope.initChart = function () {
-            $('#chart1').highcharts({
+        $scope.initChart = function() {
+            $("#chart1").highcharts({
                 chart: {
-                    type: 'line'
+                    type: "line"
                 },
                 title: {
-                    text: ''
+                    text: ""
                 },
-                colors: ['#E74C3C'],
+                colors: ["#E74C3C"],
                 xAxis: {
-                    lineColor: '#f7f7f7',
-                    gridLineColor: '#f7f7f7',
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    lineColor: "#f7f7f7",
+                    gridLineColor: "#f7f7f7",
+                    categories: [
+                        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                    ],
                     title: {
-                        text: ''
+                        text: ""
                     }
                 },
-                series: [{
-                    data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-                }]
+                series: [
+                    {
+                        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+                    }
+                ]
             });
         };
 
-        $scope.removeMark = function (type) {
-            var markers = $scope.markers.filter(function (x) { return x.data.type !== type });
 
-            console.log('rest markers', markers);
-            $scope.markers = [];
 
-            angular.forEach(markers, function(mark) {
-                $scope.markers.push(mark);
-            });
-            console.log('ok markers', $scope.markers);
-        };
+        $scope.setDirections = function(origin, dest, marker) {
 
-        $scope.$watch('filter.customer', function (newValue, oldValue) {
-            //console.log('filter.customer', newValue);
-            //if (newValue) {
-            //    angular.forEach($scope.dps, function(value, key) {
-            //        var marker = $scope.createMarker(value.lati, value.longi, value, 3);
-            //        $scope.markers.push(marker);
-            //    });
-            //} else {
-            //    $scope.removeMark('customer');
-            //}
-        });
-
-        var directionsRenderer = new google.maps.DirectionsRenderer({ suppressMarkers: true });
-
-        $scope.setDirections = function (origin,dest, marker) {
-            console.log('from', origin);
-            console.log('to', dest);
             var directionsService = new google.maps.DirectionsService();
-            var directionsDisplay = new google.maps.DirectionsRenderer();
+
             //directionsRenderer.setDirections({ routes: {} });
             //directionsRenderer.setDirections(null);
-            directionsRenderer.set('directions', null);
+            directionsRenderer.set("directions", null);
+            console.log("coming lat", origin.lat);
 
             directionsService.route({
-                origin: new google.maps.LatLng({ lat: -38.026143, lng: 145.228685 }),
-                destination: new google.maps.LatLng({ lat: -37.0552, lng: 143.7438 }),
+                origin: new google.maps.LatLng({ lat: origin.lati, lng: origin.longi }),
+                destination: new google.maps.LatLng({ lat: dest.lati, lng: dest.longi }),
                 travelMode: google.maps.TravelMode.DRIVING
-            }, function (response, status) {
+            }, function(response, status) {
 
                 if (status === google.maps.DirectionsStatus.OK) {
 
@@ -263,44 +304,141 @@
                         totalDistance += legs[i].distance.value;
                     }
 
-                    marker.data.distance = (totalDistance / 1000);
-                    marker.data.distanceLabel = ' | Distance: Approx.' + Math.ceil(totalDistance / 1000) + ' km';
-                    alert((totalDistance / 1000));
+                    //marker.data.distance = (totalDistance / 1000);
+                    //marker.data.distanceLabel = " | Distance: Approx." + Math.ceil(totalDistance / 1000) + " km";
 
-                    directionsDisplay.setMap($scope.map);
-                    directionsDisplay.setDirections(response);
+                    directionsRenderer.setMap($scope.gMap.getGMap());
+                    directionsRenderer.setDirections(response);
+
                 } else {
-                    console.log('Directions request failed due to ' + status);
+                    console.log("Directions request failed due to " + status);
                 }
 
             });
 
-        }
+        };
+        $scope.removeMark = function(type) {
+            var markers = $scope.markers.filter(function(x) { return x.data.type !== type });
+            $scope.markers = [];
+            console.log("pending", markers);
+            angular.forEach(markers, function(value, key) {
+                var marker = $scope.createMarker(value.coords.latitude, value.coords.longitude, value.data, 3);
+                $scope.markers.push(marker);
+            });
+        };
 
-        $scope.$watch('filter.depot', function (newValue, oldValue) {
-            //console.log('filter.depot', newValue);
-            //if (newValue) {
-            //    angular.forEach($scope.depots, function (value, key) {
-            //        var marker = $scope.createMarker(value.lati, value.longi, value, 3);
-            //        $scope.markers.push(marker);
-            //    });
-            //} else {
-            //    $scope.removeMark('depot');
-            //}
+        $scope.filterProducts = function (product) {
+            var markers = $scope.markers.filter(function (x) { return x.data.product !== type });
+            $scope.markers = [];
+            console.log("pending", markers);
+            angular.forEach(markers, function (value, key) {
+                var marker = $scope.createMarker(value.coords.latitude, value.coords.longitude, value.data, 3);
+                $scope.markers.push(marker);
+            });
+        };
+
+        $scope.$watch("filter.customer", function(newValue, oldValue) {
+            console.log('filter.customer', $scope.customers);
+            if (newValue) {
+                angular.forEach($scope.customers, function(value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+                $scope.removeMark("customer");
+            }
         });
 
-        $scope.$watch('filter.source', function (newValue, oldValue) {
-            //console.log('filter.source', newValue);
-            //if (newValue) {
-            //    angular.forEach($scope.sources, function (value, key) {
-            //        var marker = $scope.createMarker(value.lati, value.longi, value, 3);
-            //        $scope.markers.push(marker);
-            //    });
-            //} else {
-            //    $scope.removeMark('source');
-            //}
+        $scope.$watch("filter.depot", function(newValue, oldValue) {
+            console.log("filter.depot", newValue);
+            if (newValue) {
+                angular.forEach($scope.depots, function(value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+                $scope.removeMark("depot");
+            }
         });
 
+        $scope.$watch("filter.source", function(newValue, oldValue) {
+            console.log("filter.source", newValue);
+            if (newValue) {
+                angular.forEach($scope.sources, function(value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+                $scope.removeMark("source");
+            }
+        });
+
+        $scope.$watch("filter.comp", function (newValue, oldValue) {
+            console.log("filter.comp", newValue);
+            if (newValue) {
+                angular.forEach($scope.comp, function (value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+                $scope.removeMark("comp");
+            }
+        });
+
+        $scope.$watch("filter.comp_cust", function (newValue, oldValue) {
+            if (newValue) {
+                angular.forEach($scope.comp_cust, function (value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+                $scope.removeMark("comp_cust");
+            }
+        });
+
+        $scope.$watch("filter.lin", function (newValue, oldValue) {
+            console.log("filter.comp", newValue);
+            if (newValue) {
+                angular.forEach($scope.comp_cust, function (value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+            }
+        });
+
+        $scope.$watch("filter.lox", function (newValue, oldValue) {
+            console.log("filter.comp", newValue);
+            if (newValue) {
+                angular.forEach($scope.comp_cust, function (value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+            }
+        });
+
+        $scope.$watch("filter.lar", function (newValue, oldValue) {
+            console.log("filter.comp", newValue);
+            if (newValue) {
+                angular.forEach($scope.comp_cust, function (value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+            }
+        });
+
+        $scope.$watch("filter.co2", function (newValue, oldValue) {
+            console.log("filter.comp", newValue);
+            if (newValue) {
+                angular.forEach($scope.comp_cust, function (value, key) {
+                    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+                    $scope.markers.push(marker);
+                });
+            } else {
+            }
+        });
 
         $scope.initChart();
 
@@ -313,8 +451,8 @@
             customer: false,
             depot: false,
             comp: false,
-            comp_cust:false
-    };
+            comp_cust: false
+        };
 
         $scope.hideMarkers = [];
 
@@ -335,25 +473,33 @@
                 break;
             }
 
+            var icon = {
+                url: "/images/icon-" + data.type + ".png", // url
+                scaledSize: new google.maps.Size(30, 36), // scaled size
+                origin: new google.maps.Point(0, 0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+            };
+
             var marker = {
                 id: data.id,
                 coords: {
-                    latitude: String(lati),
-                    longitude: String(longi)
+                    latitude: lati,
+                    longitude: longi
                 },
                 options: {
                     draggable: false,
-                    icon: iconUrl
+                    icon: icon,
+                    animation: google.maps.Animation.DROP
                 },
                 icon: iconUrl,
                 data: data,
                 events: {
-                    mouseover: function (marker, eventName, model, args) {
+                    mouseover: function(marker, eventName, model, args) {
 
                     },
-                    mouseout: function (marker, eventName, model, args) {
+                    mouseout: function(marker, eventName, model, args) {
                     },
-                    click: function (marker, eventName, model, args) {
+                    click: function(marker, eventName, model, args) {
                         $scope.showPanel = true;
                         $scope.circle.visible = false;
                         $scope.parameter.data = data;
@@ -372,38 +518,65 @@
                 console.log(data);
                 data.show = false;
             });
-        }
+        };
 
-        $scope.testData = function() {
-            $http.get("data/source.json").success(function(data) {
-                console.log(data);
+        $scope.loadCustomers = function () {
+            console.log("customer data");
+            $http.get("data/customers.json").then(function(response) {
+                $scope.customers = response.data;
+            });
+        };
+
+        $scope.loadDepot = function () {
+            $http.get("data/depot.json").then(function (response) {
+                $scope.depots = response.data;
+            });
+        };
+
+        $scope.loadSources = function () {
+            $http.get("data/source.json").then(function (response) {
+                $scope.sources = response.data;
+            });
+        };
+
+        $scope.loadComp = function () {
+            $http.get("data/comp.json").then(function (response) {
+                $scope.comp = response.data;
+            });
+        };
+
+        $scope.loadCompCust = function () {
+            $http.get("data/comp_cust.json").then(function (response) {
+                $scope.comp_cust = response.data;
+                console.log($scope.comp_cust);
             });
         };
 
         $scope.init = function() {
-            angular.forEach($scope.sources, function(value, key) {
-                var marker = $scope.createMarker(value.lati, value.longi, value, 1);
-                console.log(marker.show);
-                $scope.markers.push(marker);
-            });
+            //angular.forEach($scope.sources, function(value, key) {
+            //    var marker = $scope.createMarker(value.lati, value.longi, value, 1);
+            //    console.log(marker.show);
+            //    $scope.markers.push(marker);
+            //});
 
-            angular.forEach($scope.depots, function(value, key) {
-                var marker = $scope.createMarker(value.lati, value.longi, value, 2);
-                $scope.markers.push(marker);
-            });
+            //angular.forEach($scope.depots, function(value, key) {
+            //    var marker = $scope.createMarker(value.lati, value.longi, value, 2);
+            //    $scope.markers.push(marker);
+            //});
 
-            angular.forEach($scope.dps, function(value, key) {
-                var marker = $scope.createMarker(value.lati, value.longi, value, 3);
-                $scope.markers.push(marker);
-            });
+            //angular.forEach($scope.dps, function(value, key) {
+            //    var marker = $scope.createMarker(value.lati, value.longi, value, 3);
+            //    $scope.markers.push(marker);
+            //});
+            //console.log('lat', $scope.markers[0].coords.latitude);
 
-            $scope.setDirections(
-                { lat: $scope.markers[0].coords.latitude, lng: $scope.markers[0].coords.longitude }
-                , 
-                { lat: $scope.markers[2].coords.latitude, lng: $scope.markers[2].coords.longitude }
-                ,$scope.markers[1]);
+            //$scope.setDirections($scope.markers[0], $scope.markers[1], $scope.markers[1]);
 
-            //$scope.testData();
+            $scope.loadCustomers();
+            $scope.loadDepot();
+            $scope.loadSources();
+            $scope.loadComp();
+            $scope.loadCompCust();
         };
 
         $scope.init();
