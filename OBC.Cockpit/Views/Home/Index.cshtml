@@ -39,13 +39,18 @@
     </div>
     <div id="nearby_info" class="nearby-panel" ng-show="showNearbyPanel">
         <i class="fa fa-close pull-right hand" ng-click="hideNearbyInfo()"></i>
-        <p><i class="fa fa-star icon-orange"></i>{{nearestCustomer.obj.customerName}}
-        </p>
-        <p>Distance: <b>{{nearestCustomer.distance | number:0}} KM</b>
-            <p>Closest Competitor Source: <b>10 KM</b>
+        <div ng-repeat="cust in nearestCustomers  | limitTo:5 track by $index">
+            <p>
+                <i class="fa fa-star icon-orange"></i>{{cust.obj.customerName}}
             </p>
-        <p><i class="fa fa-check-circle icon-green"></i>Potential AirLiquide customer</p>
-        </p>
+            <p>Distance: <span class="icon-green"><b>{{cust.distance | number:0}} KM</b></span>
+            <p>
+                <i class="fa fa-check-circle icon-green"></i>Potential AirLiquide customer
+            </p>
+            </p>
+            <br />
+        </div>
+        
     </div>
     <div ng-show="showPanel" class="detail-panel">
     <div><i class="fa fa-close hand pull-right" ng-click="showPanel= false"></i></div>
@@ -536,10 +541,9 @@
             <p>
                 Email: <a href="mailto:{{parameter.data.email}}">{{ parameter.data.email }}</a>
             </p>
-            <p>LOA : <b>{{parameter.data.loa}}%</b>
-            </p>
         </div>
         <button class="btn btn-danger" ng-click="findNearestCompCust()">Find Nearest Comp.Customers</button>
+        <br />
         <br/>
 
         <ul class="nav nav-tabs" ng-init="tab='1'">
@@ -548,12 +552,12 @@
         </ul>
         <div ng-show="tab==1" class="tab-height">
             <p>
-                <i class="fa fa-clock-o"></i>Last Pickup Date : {{parameter.data.lastPickupdate}}
+                <i class="fa fa-clock-o"></i>Last Pickup Date : {{parameter.data.lastPickupDate}}
             </p>
             <p>
-                Last Pickup Volume : {{parameter.data.totalVolume}} M3
+                Last Pickup Volume : {{parameter.data.totalVolumePickedUp}} M3
             </p>
-            <p>No of Pickups (YTD) : {{parameter.data.nofPickups}}</p>
+            <p>No of Pickups (YTD) : {{parameter.data.totalPickups}}</p>
             <p>Total volume Picked Up (YTD) : {{parameter.data.totalVolume}} M3</p>
             <p>Capacity : {{parameter.data.capacity}} M3</p>
             <p>Daily Quota : {{parameter.data.dailyQuota}} M3</p>
@@ -694,7 +698,7 @@
             <rzslider rz-slider-model="circle.radius" rz-slider-options="slider_ticks.options"></rzslider>
             <span><b>{{circle.radius}}</b> KM</span>
             <br />
-            <button class="btn btn-danger pull-right" ng-click="findMarkers()">Find</button>
+            <button class="btn btn-danger pull-right" ng-click="findMarkers()"><i class="fa fa-search"></i>Find</button>
         </div>
         <div class="map">
             <ui-gmap-google-map center="map.center"

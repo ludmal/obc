@@ -155,9 +155,12 @@
         }
 
         $scope.nearestCustomer = {
+            id:'',
             distance: 0,
             obj: null
         };
+
+        $scope.nearestCustomers = [];
 
         $scope.hideNearbyInfo = function() {
             $scope.showNearbyPanel = false;
@@ -173,10 +176,11 @@
                 var _pCord = new google.maps.LatLng(value.lati, value.longi);
                 var distance = google.maps.geometry.spherical.computeDistanceBetween(_kCord, _pCord) / 1000;
 
+                $scope.nearestCustomer.id = value.id;
                 $scope.nearestCustomer.distance = distance;
                 $scope.nearestCustomer.obj = value;
 
-                $scope.nearestCustomers = [$scope.nearestCustomer];
+                $scope.nearestCustomers.push($scope.nearestCustomer);
 
                 var closest = $scope.nearestCustomers[0];
 
