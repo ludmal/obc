@@ -7,18 +7,18 @@
     @Styles.Render("~/Content/css")
     <style href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"></style>
 </head>
-<body ng-app="app">
-<div>
-    @RenderBody()
-</div>
+<body ng-app="app" ng-cloak>
+    <div>
+        @RenderBody()
+    </div>
 
-@Scripts.Render("~/scripts/global")
-@Scripts.Render("~/scripts/app")
-<script type="text/javascript" src="@Url.Action("Constants", "Scripts")"></script>
-@Scripts.Render("~/scripts/modules")
-<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.0.11/angular-google-maps.js"></script>
+    @Scripts.Render("~/scripts/global")
+    @Scripts.Render("~/scripts/app")
+    <script type="text/javascript" src="@Url.Action("Constants", "Scripts")"></script>
+    @Scripts.Render("~/scripts/modules")
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.0.11/angular-google-maps.js"></script>
     <script src="//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBvA3A6nDwsdVHqMTMjHrhwsAP7qKGzTLM"></script>
-@RenderSection("scripts", false)
+    @RenderSection("scripts", false)
 </body>
 </html>

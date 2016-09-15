@@ -179,8 +179,39 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\typicons.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\aus_map.png" />
     <Content Include="images\depot.png" />
     <Content Include="images\dp.png" />
+    <Content Include="images\icon-comp-9999.png" />
+    <Content Include="images\icon-comp.jpg" />
+    <Content Include="images\icon-comp.png" />
+    <Content Include="images\icon-comp_cust-9999.png" />
+    <Content Include="images\icon-comp_cust.JPG" />
+    <Content Include="images\icon-comp_cust.png" />
+    <Content Include="images\icon-customer-LAR.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon-customer-LCO2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon-customer-LIN.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon-customer-LOX.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\icon-customer.png" />
+    <Content Include="images\icon-depot-9999.png" />
+    <Content Include="images\icon-depot.JPG" />
+    <Content Include="images\icon-depot.png" />
+    <Content Include="images\icon-source-LAR.png" />
+    <Content Include="images\icon-source-LCO2.png" />
+    <Content Include="images\icon-source-LIN.png" />
+    <Content Include="images\icon-source-LOX.png" />
+    <Content Include="images\icon-source.JPG" />
+    <Content Include="images\icon-source.png" />
+    <Content Include="images\icon-trip.JPG" />
+    <Content Include="images\icon-trip.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\object_cylinder.png" />
     <Content Include="images\source--2-.png" />
@@ -252,9 +283,15 @@
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\errors.json" />
-    <Content Include="data\depot.json" />
-    <Content Include="data\DP.json" />
-    <Content Include="data\source.json" />
+    <Content Include="data\depot.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\customers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\source.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="fonts\flaticons-stroke.eot" />
     <Content Include="fonts\flaticons-stroke.ttf" />
     <Content Include="fonts\flaticons-stroke.woff" />
@@ -266,6 +303,13 @@
     <Content Include="fonts\typicons.eot" />
     <Content Include="fonts\typicons.ttf" />
     <Content Include="fonts\typicons.woff" />
+    <Content Include="data\comp.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\comp_cust.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\obc-app.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\check-list-model.js" />
     <Content Include="Scripts\highcharts.js" />

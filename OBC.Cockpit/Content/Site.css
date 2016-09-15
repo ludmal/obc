@@ -3,6 +3,12 @@
     overflow-x: hidden;
 }
 
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+
 .box {
     color: #fff;
     font-weight: bold;
@@ -49,13 +55,30 @@
     color: #fff;
 }
 
+.color-full-lin {
+    background-color: #E67E22;
+}
+
+.color-full-lox {
+    background-color: #ff4500;
+}
+
+.color-full-lar {
+    background-color:#3366FF;
+}
+
+.color-full-co2 {
+    background-color:#00FF00;
+    color: #000;
+}
+
 
 .color-lin {
-    border-bottom:5px solid #FFCC33;
+    border-bottom:5px solid #E67E22;
 }
 
 .color-lox {
-    border-bottom:5px solid #E67E22;
+    border-bottom:5px solid #ff4500;
 }
 
 .color-lar {
@@ -90,7 +113,7 @@
     right: 20px;
     font-size: 12px;
     color: #fff;
-    z-index: 999999999;
+    z-index: 9999999;
     background: rgba(0, 0, 0, 0.7);
     -webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
 -moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
@@ -107,7 +130,7 @@ box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
     left: 200px;
     font-size: 12px;
     color: #fff;
-    z-index: 999999999;
+    z-index: 999999;
     background: rgba(0, 0, 0, 0.7);
     -webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
 -moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
@@ -479,7 +502,6 @@ p {
 
 .tab-height {
     padding-top: 10px;
-    height: 260px;
 }
 
 .pin {
@@ -487,7 +509,8 @@ p {
   height: 100px;
   -webkit-border-radius: 50% 50% 50% 0;
   border-radius: 50% 50% 50% 0;
-  background: #2ecc71;
+  background: #ffb92d;
+    border: 20px solid #ff4500;
   position: absolute;
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
@@ -503,10 +526,64 @@ p {
 
 .rotate {
   transform: rotate(45deg);
-    padding-left: 40px;
+    padding-left: 10px;
     color: #fff;
     font-size: 50px;
-    padding-bottom: 5px;
-    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
     
+}
+
+.region_vic {
+    top: 300px;
+    left: 400px;
+    color: #fff;
+    position: absolute;
+    z-index: 99999;
+}
+
+.stats table {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.stats td, th {
+  border: 1px solid #999;
+  padding: 2px;
+}
+
+
+.main-image {
+    top: 100px;
+    left: 300px;
+    width: 100%;
+    position: absolute;
+    z-index: 9999999999999;
+}
+
+.region-panel {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    font-size: 12px;
+    color: #fff;
+    padding: 20px;
+    z-index: 9999999999999999999;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
+-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
+box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.44);
+}
+
+.region-panel h1 {
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+img.immap, map area{
+    outline: none;
 }

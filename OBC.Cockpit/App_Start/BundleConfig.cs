@@ -51,6 +51,8 @@ namespace OBC.Cockpit
                 .Include(
                     "~/app/core/*.js"
                 ));
+
+            System.Web.Optimization.BundleTable.EnableOptimizations = false;
         }
     }
 }

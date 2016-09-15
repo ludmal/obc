@@ -1,3 +1,18 @@
+{
+    total_trailers: 0,
+    total_trips: 0,
+    total_deliveries: 0,
+    total_vol_delivered: 0,
+    full_drops: 0,
+    km_ton: 0,
+    loa: 0,
+    drop_ratio: 0,
+    vehicle_fill_ratio: 0,
+    stock_out: 0,
+    region:'',
+    product:'',  
+}
+
 [ 
     {
 "id":"A9",
@@ -19,7 +34,9 @@
 "vehRatio":  44.68,
 "stockOut":  29,
 "product": "9999",
-"type": "depot"},
+        "type": "depot"
+
+    },
 
 {
 "id":"A12",
