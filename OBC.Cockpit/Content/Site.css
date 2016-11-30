@@ -202,15 +202,6 @@ i { margin-right: 8px; }
     z-index: 9999999;
 }
 
-.map {
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
-.angular-google-map-container { height: 100vh; }
-
 
 .red { background-color: #E74C3C; }
 

@@ -14,6 +14,7 @@ namespace OBC.Cockpit
                       "~/Content/ngDialog.min.css",
                       "~/Content/ngDialog-theme-default.min.css",
                       "~/Content/rzslider.css",
+                      "~/Content/stroke.css",
                       "~/Content/custom.css",
                       "~/Content/site.css"));
 
