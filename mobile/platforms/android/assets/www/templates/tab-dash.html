@@ -1,0 +1,26 @@
+
+<ion-view cache-view="false" view-title="{{ 'YOUR_CURRENT_LOCATION' | translate }}">
+  <ion-content class="padding">
+  	<p>
+  		Today is <B>{{today | date:'dd MMM yyyy'}}</B><br/>
+  		<span translate="CURRENT_TEMPERATURE"></span>  <b>{{getTemp()}} &#8451;</b><br>
+  		<span translate="LANGUAGE"></span>: <b>{{lng}}</b>
+
+  	</p>
+   	 <span translate="YOUR_CURRENT_LOCATION">Your current location:</span><br>
+   	 <b>{{address}}</b>
+   	 (Latitude:{{lat}} Longitude:{{long}})<br><br>
+   	 <!-- [Debug: {{result}}] -->
+<br/>
+<div>
+       <div class="mapWrap"  data-tap-disabled="true">
+        <map center="{{lat}},{{long}}" zoom="15"> 
+          <!-- ngRepeat: pos in positions -->
+          <marker ng-repeat=" pos in positions" position="{{lat}},{{long}}"></marker>
+        </map> 
+      </div>
+</div>
+<br/>
+   	 <div>Beta version 0.8v</div>
+   </ion-content>
+</ion-view>

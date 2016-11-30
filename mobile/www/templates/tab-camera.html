@@ -1,0 +1,274 @@
+<ion-view cache-view="false" view-title="{{ 'MAIN_TITLE' | translate }}">
+
+  <ion-content class="fullHeight ">
+  <div class="im-back">
+
+  <div class="containerDiv">
+  <img src="{{picture}}" ng-show="picture" class="pic">
+  <img src="img/bak.jpg" ng-hide="picture" class="pic">
+</div>
+   <div class="text-center" style="position:absolute;top:20px;left:20px">
+   <button class="button margin-2 icon-left ion-camera button-balanced" ng-click="changePicture()"></button>
+   </div>
+   <div style="padding:10px;">
+   <div class="list">
+   <label class="item item-input item-stacked-label">
+  <span class="input-label" translate="NAME">Name</span>
+  <input type="text" placeholder="{{ 'NAME_PLACE' | translate }}" ng-model="item.Agg1"/>
+</label>
+<hr/>
+  <div class="lbl-block"  translate="PRODUCT">Product </div><br/>
+  <div class="row wrapper">
+    <button ID="B1N" class="btn col pro lin" ng-class="{ 'pro-selected': item.Product == 'LIN' }" ng-click="setProduct('LIN')">
+      LIN
+    </button>
+    <button ID="B2N"  class="btn col pro lox" ng-class="{ 'pro-selected': item.Product == 'LOX' }" ng-click="setProduct('LOX')">
+      LOX
+    </button>
+    <button class="btn col pro lar" ng-class="{ 'pro-selected': item.Product == 'LAR' }" ng-click="setProduct('LAR')">
+      LAR
+    </button>
+    <button class="btn col pro lco2" ng-class="{ 'pro-selected': item.Product == 'LCO2' }" ng-click="setProduct('LCO2')">
+      LCO2
+    </button>
+  </div>
+  <div class="row wrapper">
+    <button class="btn col pro ho" ng-class="{ 'pro-selected': item.Product == 'H2' }" ng-click="setProduct('H2')">
+      H2
+    </button>
+    <button class="btn col pro lox" ng-class="{ 'pro-selected': item.Product == 'LOX Medical' }" ng-click="setProduct('LOX Medical')"> 
+      <img src="img/medical.jpg" style="width:20px;margin-right:5px"/>LOX
+    </button>
+    <button class="btn col pro lin" ng-class="{ 'pro-selected': item.Product == 'LIN Medical' }" ng-click="setProduct('LIN Medical')">
+      <img src="img/medical.jpg" style="width:20px;margin-right:5px"/>LIN
+    </button>
+    <div class="col">
+      
+    </div>
+  </div>
+<hr/>
+  <div class="lbl-block"  translate="TANK_SIZE">Tank Size</div><br/>
+  <div class="row wrapper">
+    <button class="btn col tank g1" ng-class="{ 'tank-selected': item.Tank == '3.000' }" ng-click="setTank('3.000')">
+      ~3.000L
+    </button>
+    <button class="btn col tank g2"  ng-class="{ 'tank-selected': item.Tank == '6.000' }" ng-click="setTank('6.000')">
+      ~6.000L
+    </button>
+    <button class="btn col tank g3"   ng-class="{ 'tank-selected': item.Tank == '10.000' }" ng-click="setTank('10.000')">
+      ~10.000L
+      
+    </button>
+    <button class="btn col tank g4"   ng-class="{ 'tank-selected': item.Tank == '20.000' }" ng-click="setTank('20.000')">
+      ~20.000L
+      
+    </button>
+
+  </div>
+  <div class="row wrapper">
+    <button class="btn col tank g5" ng-class="{ 'tank-selected': item.Tank == '30.000' }" ng-click="setTank('30.000')">
+      ~30.000L
+      
+    </button>
+    <button class="btn col tank g6"  ng-class="{ 'tank-selected': item.Tank == '50.000' }" ng-click="setTank('50.000')">
+      ~50.000L
+      
+    </button>
+    <button class="btn col tank g7"  ng-class="{ 'tank-selected': item.Tank == '100.000' }" ng-click="setTank('100.000')">
+      ~100.000L
+    </button>
+    <button class="btn col tank g8"  ng-class="{ 'tank-selected': item.Tank == '>100.000' }" ng-click="setTank('>100.000')">
+      >100.000L
+    </button>
+  </div>
+<hr/>
+  <div class="lbl-block"  translate="SUPPLIER">Supplier</div><br/>
+  <div class="row wrapper">
+    <button class="btn col sup linde" ng-click="setSupplier('Linde')" ng-class="{ 'sup-selected' : item.Supplier == 'Linde'}">
+    </button>
+    <button class="btn col sup air-products" ng-click="setSupplier('AirProducts')" ng-class="{ 'sup-selected' : item.Supplier == 'AirProducts'}">
+    </button>
+    
+  </div>
+  <div class="row wrapper">
+    <button class="btn col sup praxair" ng-click="setSupplier('Praxair')" ng-class="{ 'sup-selected' : item.Supplier == 'Praxair'}">
+    </button>
+    <button class="btn col sup messer" ng-click="setSupplier('Messer')" ng-class="{ 'sup-selected' : item.Supplier == 'Messer'}">
+    </button>
+
+  </div>
+  <div class="row wrapper">
+    <button class="btn col sup lin" ng-click="setSupplier('Other')" ng-class="{ 'sup-selected' : item.Supplier == 'Other'}">
+    Other
+    </button>
+    <br/>
+    <input class="btn col sup-selected" ng-show="item.Supplier == 'Other'" style="border:1px solid #ddd" type="text" placeholder="Enter a supplier"/>
+  </div>
+ <!--  <div class="row">
+    <button class="btn col sup">
+      WAG
+    </button>
+    <button class="btn col sup">
+      SWF
+    </button>
+    <button class="btn col sup">
+      Other
+    </button>
+    <div class="col">
+      
+    </div>
+  </div> -->
+<hr/>
+  <div class="lbl-block"  translate="MARKET_SECTOR">Market Sector</div><br/>
+  <div class="row wrapper">
+    <button class="btn col mar food" ng-click="setMarket('FOOD')" ng-class="{ 'mar-selected' : item.Market == 'FOOD'}">
+      <i class="ion-coffee icon"></i>Food & Pharma
+    </button>
+    <button class="btn col mar ener" ng-click="setMarket('MAT')"  ng-class="{ 'mar-selected' : item.Market == 'MAT'}">
+      <i class="ion-flash icon"></i>Materials & Energy
+    </button>
+   
+  </div>
+  <div class="row wrapper">
+    <button class="btn col mar aut" ng-click="setMarket('AUTO')"  ng-class="{ 'mar-selected' : item.Market == 'AUTO'}">
+      <i class="ion-wand icon"></i>Automotive & Fabri.
+    </button>
+    <button class="btn col mar tech" ng-click="setMarket('TECH')"  ng-class="{ 'mar-selected' : item.Market == 'TECH'}">
+      <i class="ion-erlenmeyer-flask icon"></i>Tech & Research
+    </button>
+    
+  </div>
+  <div class="row wrapper">
+    <button class="btn col mar craft" ng-click="setMarket('NET')"  ng-class="{ 'mar-selected' : item.Market == 'NET'}">
+      <i class="ion-person-stalker icon"></i>Craftsmen & Network
+    </button>
+    <div class="col">
+    </div>
+  </div>
+<hr/>
+<div class="row">
+  <div class="col">
+    <label class="item item-input item-stacked-label">
+  <span class="input-label"  translate="ADDRESS" >Address</span>
+  <input type="text" ng-model="item.Agg2"/>
+</label>
+  </div>
+   <div class="col">
+     <label class="item item-input item-stacked-label">
+  <span class="input-label"   translate="PLACE">Place</span>
+  <input type="text" ng-model="item.Agg3"/>
+</label>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <label class="item item-input item-stacked-label">
+  <span class="input-label"  translate="POSTCODE" >Postcode</span>
+  <input type="text" ng-model="item.Agg4"/>
+</label>
+  </div>
+  <div class="col">
+    <label class="item item-input item-stacked-label">
+  <span class="input-label"  translate="COUNTRY" >Country</span>
+  <input type="text" ng-model="item.Agg5"/>
+</label>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <label class="item item-input item-stacked-label">
+  <div class="input-label"  translate="LONGITUDE" >Longitude</div><br/>
+ {{item.Agg7}}
+</label>
+  </div>
+  <div class="col">
+    <label class="item item-input item-stacked-label">
+  <div class="input-label"  translate="LATITUDE" >Latitude</div><br/>
+  {{item.Agg6}}
+</label>
+  </div>
+</div>
+<hr/>
+ <label class="item item-input item-stacked-label">
+  <span class="input-label"  translate="REMARKS" >Remarks</span>
+  <input type="text" ng-model="item.Remarks" placeholder="{{ 'REMARKS_PLACE' | translate }}"/>
+  <input type="text" ng-model="data.speechText" placeholder="Voice text"/>
+  <button class="button button-full button-positive" ng-click="speakText()">
+          Voice to Text
+        </button><br/>
+  <button class="button button-full button-positive"ng-click="record()">
+          Record
+        </button>
+</label>
+<label class="item item-input item-stacked-label">
+  <span class="input-label"   translate="WEBSITE">Website</span>
+  <input type="text" ng-model="item.Website" placeholder="{{ 'WEBSITE_PLACE' | translate }}"/>
+</label>
+<hr/>
+  <div class="lbl-block" translate="CYLIDNER_REQUIRED" >Cylinder Required</div><br/>
+  <div class="row wrapper">
+    <button class="btn col" ng-click="setCylinderRequired(true)" ng-class="{ 'btn-yes' : item.CylinderRequired ==  true, 'btn-no' : item.CylinderRequired ==  false }">
+      Yes
+    </button>
+    <button class="btn col btn-yes" ng-click="setCylinderRequired(false)" ng-class="{ 'btn-no' : item.CylinderRequired ==  true, 'btn-yes' : item.CylinderRequired ==  false }">
+      No
+    </button>
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      
+    </div>
+  </div><br/>
+  <div class="row wrapper">
+    <button class="btn col" ng-click="setSalesForce(true);setBar(false);" ng-class="{ 'btn-yes' : item.InSalesForce ==  true, 'btn-no' : item.InSalesForce ==  false }" >
+      Sales Force
+    </button>
+    <button class="btn col btn-yes" ng-click="setBar(true);setSalesForce(false)" ng-class="{ 'btn-yes' : item.InBarPlus ==  true, 'btn-no' : item.InBarPlus ==  false }">
+      Bar+
+    </button>
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      
+    </div>
+  </div><br/>
+  <!-- <div class="lbl-block">In Sales Force</div><br/>
+  <div class="row wrapper">
+    <button class="btn col" ng-click="setSalesForce(true)" ng-class="{ 'btn-yes' : item.InSalesForce ==  true, 'btn-no' : item.InSalesForce ==  false }">
+      Yes
+    </button>
+    <button class="btn col"  ng-click="setSalesForce(false)" ng-class="{ 'btn-no' : item.InSalesForce ==  true, 'btn-yes' : item.InSalesForce ==  false }">
+      No
+    </button>
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      
+    </div>
+  </div><br/> -->
+  <!-- <div class="lbl-block"  >In BAR+</div><br/>
+  <div class="row wrapper">
+    <button class="btn col" ng-click="setBar(true)" ng-class="{ 'btn-yes' : item.InBarPlus ==  true, 'btn-no' : item.InBarPlus ==  false }">
+      Yes
+    </button>
+    <button class="btn col"  ng-click="setBar(false)" ng-class="{ 'btn-no' : item.InBarPlus ==  true, 'btn-yes' : item.InBarPlus ==  false }">
+      No
+    </button>
+    <div class="col">
+      
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+   </div> -->
+   </div>
+   <div class="centerDiv padding">
+      <button class="button fullWidth icon-left ion-plus button-positive" translate="BTN_SAVE" style="margin-bottom:40px" ng-click="saveItem()">Save</button>
+    </div>
+</div>
+  </ion-content>
+</ion-view>

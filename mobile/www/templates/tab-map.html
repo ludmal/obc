@@ -1,0 +1,12 @@
+<ion-view view-title="Location">
+  <ion-content>
+  
+  <div class="mapWrap"  data-tap-disabled="true">
+        <map center="{{lat}},{{long}}" zoom="15"> 
+          <!-- ngRepeat: pos in positions -->
+          <marker position="{{lat}},{{long}}"></marker>
+        </map> 
+      </div>
+
+    </ion-content>
+</ion-view>

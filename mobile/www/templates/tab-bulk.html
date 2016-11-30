@@ -1,0 +1,15 @@
+<ion-view cache-view="false" view-title="{{ 'MAIN_TITLE' | translate }}">
+  <ion-content>
+  <div class="plant1">
+	{{ 'BTN_BULK' | translate }}
+</div>
+   <div class="list padding">
+    <a class="item item-thumbnail-left" href="#/app/map?a={{item.Agg6}}&b={{item.Agg7}}"  ng-repeat="item in items">
+   				<img src="{{item.AggBase}}"/>
+      <h2><b>{{item.Agg1}}</b></h2>
+      <p><span ng-show="item.Agg2">{{ item.Agg2 }} &nbsp;</span>{{ item.Agg3}}<br>
+   						{{ item.Agg4}} &nbsp; {{item.Agg5}}</p>
+    </a>
+</div>
+   </ion-content>
+</ion-view>
