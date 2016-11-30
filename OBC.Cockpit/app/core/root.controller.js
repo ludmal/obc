@@ -3553,7 +3553,7 @@
                     },
                     {
                         "name": "Total Volume Delivered",
-                        "values": ["21223245(M3)", "8166813(M3)", "950195(M3)", "25213451(KG)"]
+                        "values": ["21,223K (M3)", "8,166K (M3)", "950K (M3)", "25,213K (KG)"]
                     },
                     {
                         "name": "Full Drops",
@@ -3604,7 +3604,7 @@
                     },
                     {
                         "name": "Total Volume Delivered",
-                        "values": ["3045101(M3)", "3339159(M3)", "378540(M3)", "35311805(KG)"]
+                        "values": ["3,045K (M3)", "3,339K (M3)", "378K (M3)", "35,311K (KG)"]
                     },
                     {
                         "name": "Full Drops",
@@ -3655,7 +3655,7 @@
                     },
                     {
                         "name": "Total Volume Delivered",
-                        "values": ["2685451(M3)", "468847(M3)", "277142(M3)", "21135994(KG)"]
+                        "values": ["2,685K (M3)", "468K(M3)", "277K (M3)", "21,135K (KG)"]
                     },
                     {
                         "name": "Full Drops",
@@ -3706,7 +3706,7 @@
                     },
                     {
                         "name": "Total Volume Delivered",
-                        "values": ["16658958(M3)", "8310482(M3)", "1056783(M3)", "23365034(KG)"]
+                        "values": ["16,658K (M3)", "8,310K (M3)", "1,056K (M3)", "23,365K (KG)"]
                     },
                     {
                         "name": "Full Drops",
@@ -3757,7 +3757,7 @@
                     },
                     {
                         "name": "Total Volume Delivered",
-                        "values": ["1771729(M3)", "2870638(M3)", "1083425(M3)", "13745331(KG)"]
+                        "values": ["1,771K (M3)", "2,870K (M3)", "1,083K (M3)", "13,745K (KG)"]
                     },
                     {
                         "name": "Full Drops",
