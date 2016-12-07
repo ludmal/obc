@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("_FilterDate")
+        @Html.Partial("_FilterUser")
+    </div>
+    <div class="col-md-9">
+        <div class="panel">
+            <div class="panel-header">Industrial Gas Atlas Map</div>
+            <div ng-controller="RootController">
+                <div class="map">
+                    <ui-gmap-google-map center="map.center"
+                                        zoom="map.zoom" aria-label="Google map" styles="map.styles" events="map.events" control="gMap">
+                        <ui-gmap-circle center="circle.center" stroke="circle.stroke" fill="circle.fill" radius="circle.radius*1000"
+                                        visible="circle.visible" geodesic="circle.geodesic" editable="circle.editable" draggable="circle.draggable" clickable="circle.clickable" control="circle.control"></ui-gmap-circle>
+
+                        <ui-gmap-marker ng-repeat="marker in markers"
+                                        coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+
+                            <ui-gmap-window templateurl="'files/test.html'" templateparameter="marker" show="false">
+
+                            </ui-gmap-window>
+                        </ui-gmap-marker>
+
+                    </ui-gmap-google-map>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

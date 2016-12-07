@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "DataEntry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("_Images")
+        @Html.Partial("_AuditHistory")
+
+        
+    </div>
+    <div class="col-md-9">
+        <div class="panel">
+            <div class="panel-header">
+                Industrial Gas Atlas - Airliquide Sunshine
+            </div>
+            <div class="panel-body">
+                <div class="pull-right">
+                    <button class="btn btn-success"><i class="fa fa-check-circle-o icon-left"></i>Approve</button>
+                    &nbsp;<button class="btn btn-danger"><i class="fa fa-circle-o-notch icon-left"></i>Reject</button>
+                    &nbsp;<button class="btn btn-warning"><i class="fa fa-plus icon-left"></i>Update</button>
+                </div>
+                <div>
+                    Currently editing : <b>ludmal@gmail.com</b> 12.34 pm
+                </div>
+
+                <br/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-label">
+                            Name
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="Airliquide Sunshine"/>
+                        </div>
+                        <div class="form-label">
+                            Product
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="LIN"/>
+                        </div>
+                        <div class="form-label">
+                            Tank Size
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="3000"/>
+                        </div>
+                        <div class="form-label">
+                            Market Sector
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="Tech & Research"/>
+                        </div>
+                        <div class="form-label">
+                            Remarks
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="No remarks"/>
+                        </div>
+
+                        <div class="form-label">
+                            Website
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="http://www.airliquide.com.au"/>
+                        </div>
+                        <div class="form-label">
+                            Bar+ Details
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                        <div class="form-label">
+                            Sales Force
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label">
+                            Address
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="40 Bunnett St"/>
+                        </div>
+                        <div class="form-label">
+                            Place
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="North Sunshine VIC"/>
+                        </div>
+                        <div class="form-label">
+                            Postcode
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="3020"/>
+                        </div>
+                        <div class="form-label">
+                            Country
+                        </div>
+                        <div class="form-value">
+                            <input type="text" class="form-control" placeholder="Australia"/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

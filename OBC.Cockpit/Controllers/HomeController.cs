@@ -19,5 +19,20 @@ namespace OBC.Cockpit.Controllers
         {
             return View();
         }
+
+        public ActionResult DataEntry()
+        {
+            return View();
+        }
+
+        public ActionResult Map()
+        {
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }

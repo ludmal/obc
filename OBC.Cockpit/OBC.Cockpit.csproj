@@ -213,11 +213,14 @@
     <Content Include="images\icon-source.png" />
     <Content Include="images\icon-trip.JPG" />
     <Content Include="images\icon-trip.png" />
+    <Content Include="images\image_2.JPG" />
+    <Content Include="images\img4.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\object_cylinder.png" />
     <Content Include="images\source--2-.png" />
     <Content Include="images\source_2.png" />
     <Content Include="images\source.png" />
+    <Content Include="images\tank.jpg" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -353,13 +356,20 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_FilterDate.cshtml" />
+    <Content Include="Views\Shared\_FilterUser.cshtml" />
+    <Content Include="Views\Home\DataEntry.cshtml" />
+    <Content Include="Views\Shared\_Images.cshtml" />
+    <Content Include="Views\Shared\_AuditHistory.cshtml" />
+    <Content Include="Views\Home\Map.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
